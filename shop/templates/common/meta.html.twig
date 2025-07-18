@@ -1,0 +1,35 @@
+{# templates/layout/meta.html.twig #}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{# Дефолтные значения для title и description #}
+{% set default_value = {
+    title: 'Интернет магазин автозапчастей КамАЗ МАЗ Урал - ООО ПКФ СибРемДеталь',
+    description: 'Интернет магазин автозапчастей КамАЗ, МАЗ, Урал. Ремонт, установка автономных отопителей и подогревателей.'
+} %}
+
+{% block title %}
+    <title>{{ title|default(default_value.title) }}</title>
+{% endblock %}
+
+<base href="{{ base_url|default('/') }}">
+
+<meta name="description" content="{{ description|default(default_value.description) }}">
+
+{% if keywords is defined %}
+    <meta name="keywords" content="{{ keywords }}">
+{% endif %}
+
+{# Open Graph (Facebook, WhatsApp) #}
+<meta property="og:type" content="website">
+<meta property="og:locale" content="{{ app.request.locale|default('ru_RU') }}">
+<meta property="og:title" content="{{ og_title|default(title|default(default_value.title)) }}">
+<meta property="og:description" content="{{ og_description|default(description|default(default_value.description)) }}">
+<meta property="og:url" content="{{ og_url|default(app.request.uri) }}">
+<meta property="og:image" content="{{ asset(og_image|default('assets/favicons/favicon-96x96.png')) }}">
+
+{# Twitter Card #}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ twitter_title|default(title|default(default_value.title)) }}">
+<meta name="twitter:description" content="{{ twitter_description|default(description|default(default_value.description)) }}">
+<meta name="twitter:image" content="{{ asset(twitter_image|default('assets/favicons/favicon-96x96.png')) }}">

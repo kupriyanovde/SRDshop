@@ -16,5 +16,12 @@ services:
     App\:
         resource: '../src/'
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
+    App\Service\CommonLayout\:
+        resource: '../src/Service/CommonLayout/*'
+        tags: ['common.layout.content']
+
+    App\Service\CommonLayoutService:
+        arguments:
+            $parts: !tagged_iterator common.layout.content
+
+ 

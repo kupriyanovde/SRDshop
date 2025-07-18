@@ -1,0 +1,171 @@
+/* ================================= */
+/*          Переменные цвета         */
+/* ================================= */
+:root {
+    /* Основные цвета бренда */
+    --srd-blue: #004B8D;               /* Основной синий цвет бренда */
+    --srd-blue-hover: #3A6BAB;         /* Цвет синего при наведении */
+    --srd-blue-light-hover: #99c2ff;   /* Светло-голубой для ховера меню и футера */
+    --srd-dark-blue-text: #002C5E;     /* Темно-синий цвет текста */
+
+    /* Цвета для границ и разделителей */
+    --srd-border-color: #dee2e6;       /* Цвет границ и разделителей */
+
+    /* Цвета для текста и фона */
+    --srd-white: #ffffff;              /* Белый цвет */
+    --srd-black: #000000;              /* Черный цвет */
+
+    /* Тени для текста */
+    --srd-text-shadow: 0 0 1px rgba(0, 75, 141, 0.3); /* Легкая тень для выделения */
+
+    /* Размеры шрифтов */
+    --srd-font-base-size: 1rem;        /* Базовый размер шрифта */
+    --srd-font-large-size: 1.1rem;     /* Размер шрифта чуть больше базового */
+    --srd-font-icon-size: 1.3rem;      /* Размер шрифта для иконок доверия */
+    --srd-font-badge-size: 0.75rem;    /* Размер шрифта для бейджей (счётчиков) */
+
+    /* Отступы и размеры */
+    --srd-padding-vertical-small: 0.45rem; /* Маленькие вертикальные отступы (например, для кнопок) */
+    --srd-padding-horizontal-large: 2rem;  /* Большие горизонтальные отступы */
+    --srd-padding-vertical-medium: 0.7rem; /* Средние вертикальные отступы (например, шапка) */
+    --srd-padding-vertical-large: 1rem;    /* Большие вертикальные отступы (например, иконки доверия) */
+    --srd-padding-footer: 2rem 1rem;         /* Отступы для футера */
+
+    /* Радиус скругления */
+    --srd-border-radius: 4px;          /* Радиус скругления углов */
+
+    /* Шрифты */
+    --srd-font-family-base: sans-serif; /* Базовый шрифт */
+    --srd-font-weight-medium: 500;     /* Средняя жирность */
+}
+
+/* ================================= */
+/*           Сброс и базовые стили   */
+/* ================================= */
+body {
+    font-family: var(--srd-font-family-base);    /* Шрифт по умолчанию */
+    background-color: var(--srd-white);          /* Белый фон страницы */
+}
+
+/* ================================= */
+/*            1. Топ-бар             */
+/* ================================= */
+.srd-header-top {
+    background-color: var(--srd-white);              /* Фон белый */
+    font-size: var(--srd-font-large-size);           /* Размер шрифта чуть больше базового */
+    border-bottom: 1px solid var(--srd-border-color);/* Нижняя граница */
+    color: var(--srd-dark-blue-text);                 /* Темно-синий цвет текста */
+}
+
+/* Ссылки в топ-баре */
+.srd-header-top a {
+    color: var(--srd-dark-blue-text);                /* Цвет ссылок совпадает с текстом */
+    text-decoration: none;                            /* Без подчеркивания */
+    transition: color 0.2s ease;                      /* Плавное изменение цвета при наведении */
+}
+
+/* Ховер для ссылок в топ-баре */
+.srd-header-top a:hover {
+    color: var(--srd-blue);                           /* Ярче синий цвет */
+    text-decoration: none;                            /* Подчеркивание отключено */
+    text-shadow: var(--srd-text-shadow);              /* Легкая тень для выделения */
+}
+
+/* ================================= */
+/*         2. Каталог + Поиск        */
+/* ================================= */
+.srd-button-alt {
+    background-color: #2C5D97;           /* Темно-синий фон кнопок (можно вынести в переменную при необходимости) */
+    color: var(--srd-white);              /* Белый цвет текста */
+    border: none;                        /* Без рамки */
+    padding: var(--srd-padding-vertical-small) var(--srd-padding-horizontal-large); /* Отступы */
+    border-radius: var(--srd-border-radius);      /* Закругленные углы */
+    transition: background-color 0.2s ease;       /* Плавное изменение фона */
+    font-weight: var(--srd-font-weight-medium);   /* Средняя жирность текста */
+    vertical-align: middle;                        /* Вертикальное выравнивание */
+}
+
+/* Ховер эффект для кнопок */
+.srd-button-alt:hover {
+    background-color: var(--srd-blue-hover);       /* Светлее синий при наведении */
+    cursor: pointer;                                /* Курсор-рука */
+}
+
+/* Позиционирование контейнера корзины */
+.srd-cart {
+    position: relative;                             /* Относительное позиционирование для badge */
+}
+
+/* Счётчик в корзине (badge) */
+.srd-cart .badge {
+    position: absolute;                             /* Абсолютное позиционирование */
+    top: -8px;                                      /* Смещение сверху */
+    right: -10px;                                   /* Смещение справа */
+    font-size: var(--srd-font-badge-size);         /* Размер шрифта маленький */
+}
+
+/* Основной блок шапки с фоном */
+.srd-header-main {
+    background-color: var(--srd-blue);              /* Синий фон */
+    color: var(--srd-white);                         /* Белый текст */
+    padding: var(--srd-padding-vertical-medium) 0;  /* Вертикальные отступы */
+}
+
+/* ================================= */
+/*           3. Меню                 */
+/* ================================= */
+.srd-header-menu {
+    background-color: var(--srd-blue);              /* Синий фон */
+    color: var(--srd-white);                         /* Белый цвет текста */
+    font-size: var(--srd-font-base-size);           /* Стандартный размер шрифта */
+    border-bottom: 1px solid var(--srd-border-color); /* Нижняя граница */
+}
+
+/* Стили ссылок меню */
+.srd-header-menu a {
+    color: var(--srd-white);                         /* Белый цвет */
+    text-decoration: none;                            /* Без подчеркивания */
+    transition: color 0.2s ease;                      /* Плавное изменение цвета */
+}
+
+/* Ховер эффект для ссылок меню */
+.srd-header-menu a:hover {
+    color: var(--srd-blue-light-hover);              /* Светло-голубой при наведении */
+    text-decoration: none;                            /* Подчеркивание отключено */
+    text-shadow: var(--srd-text-shadow);              /* Легкая тень */
+}
+
+/* ================================= */
+/*          4. Иконки доверия         */
+/* ================================= */
+.srd-trust-icons {
+    background-color: var(--srd-white);              /* Белый фон */
+    border-bottom: 1px solid var(--srd-border-color); /* Нижняя граница */
+    padding: var(--srd-padding-vertical-large) 0;    /* Вертикальные отступы */
+    font-size: var(--srd-font-icon-size);            /* Немного увеличенный размер шрифта */
+    text-align: center;                               /* Выравнивание текста по центру */
+}
+
+/* ================================= */
+/*            Футер                  */
+/* ================================= */
+.srd-footer {
+    background-color: var(--srd-blue);                /* Синий фон */
+    color: var(--srd-white);                           /* Белый текст */
+    padding: var(--srd-padding-footer);                /* Отступы */
+    border-top: 1px solid var(--srd-border-color);    /* Верхняя граница */
+}
+
+/* Ссылки в футере */
+.srd-footer a {
+    color: var(--srd-white);                           /* Цвет ссылок совпадает с текстом */
+    text-decoration: none;                             /* Без подчеркивания */
+    transition: color 0.2s ease;                       /* Плавное изменение цвета при наведении */
+}
+
+/* Ховер для ссылок в футере */
+.srd-footer a:hover {
+    color: var(--srd-blue-light-hover);                /* Светло-голубой при наведении */
+    text-decoration: none;                             /* Подчеркивание отключено */
+    text-shadow: var(--srd-text-shadow);               /* Легкая тень */
+}

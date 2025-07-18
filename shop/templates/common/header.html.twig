@@ -1,0 +1,108 @@
+{# templates/layout/header.html.twig #}
+<header>
+    {# 1-я строка — топ-бар #}
+    <div class="srd-header-top py-2">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div>
+                <a href="/" class="d-inline-flex align-items-center me-2" aria-label="Главная">
+                    <img src="assets/favicons/logo_big.svg" alt="ООО ПКФ СибРемДеталь" height="32" />
+                </a>
+            </div>
+            <div>
+                {% set menuLinks = headerData.menuLinks|default([
+                    {'title': 'О компании', 'url': '#'},
+                    {'title': 'Доставка', 'url': '#'},
+                    {'title': 'Контакты', 'url': '#'}
+                ]) %}
+                {% for link in menuLinks %}
+                    <a href="{{ link.url }}" class="me-3">{{ link.title }}</a>
+                {% endfor %}
+            </div>
+            <div>
+                {% set whatsapp = headerData.whatsapp|default('79059404240') %}
+                {% set phone = headerData.phone|default('+7 (905) 940-42-40') %}
+                <a href="https://wa.me/{{ whatsapp }}" aria-label="Написать в WhatsApp" class="d-inline-flex align-items-center me-2">
+                    <img src="assets/icons/WhatsApp.svg" alt="Написать в WhatsApp" height="16" />
+                </a>
+                <a href="tel:{{ phone|replace({' ': '', '(': '', ')': '', '-': ''}) }}" aria-label="Позвонить" class="d-inline-flex align-items-center me-2">
+                    <img src="assets/icons/Phone.svg" alt="{{ phone }}" height="16" />
+                    <strong>{{ phone }}</strong>
+                </a>
+            </div>
+            <div>
+                <a href="#" class="d-inline-flex align-items-center me-2" aria-label="Вход">
+                    <img src="assets/icons/User.svg" height="16" />
+                    Вход
+                </a>
+            </div>
+        </div>
+    </div>
+
+    {# 2-я строка — функциональная панель #}
+    <div class="srd-header-main">
+        <div class="container d-flex justify-content-between align-items-center">
+            <button class="srd-button-alt me-3">
+                <img src="assets/icons/Menu.svg" height="16" />
+                Каталог
+            </button>
+
+            <form class="d-flex flex-grow-1 mx-3" role="search" method="get" action="/search">
+                <input class="form-control me-2 search-input" type="search" name="q" placeholder="Поиск по названию, артикулу" />
+                <button class="srd-button-alt btn btn-outline-light" type="submit">
+                    <img src="assets/icons/MagnifyingGlass.svg" height="16" />
+                </button>
+            </form>
+
+            <div class="srd-cart">
+                {% set cartCount = headerData.cartCount|default(3) %}
+                <button class="srd-button-alt position-relative" aria-label="Перейти в корзину, {{ cartCount }} товаров">
+                    <img src="assets/icons/Cart.svg" height="16" />
+                    Корзина
+                    {% if cartCount > 0 %}
+                        <span class="badge rounded-pill bg-danger">{{ cartCount }}</span>
+                    {% endif %}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    {# 3-я строка — меню действий #}
+    {% if headerData.hideMenu is not defined or headerData.hideMenu == false %}
+    <div class="srd-header-menu py-2">
+        <div class="container d-flex justify-content-center gap-4">
+            {% set actionsMenu = headerData.actionsMenu|default([
+                {'title': 'Заявка на подбор запчастей', 'url': '#'},
+                {'title': 'Услуги', 'url': '#'},
+                {'title': 'Запись на установку и ремонт отопителей', 'url': '#'}
+            ]) %}
+            {% for action in actionsMenu %}
+                <a href="{{ action.url }}">{{ action.title }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    {# 4-я строка — иконки доверия #}
+    {% if headerData.hideTrustIcons is not defined or headerData.hideTrustIcons == false %}
+        <div class="srd-trust-icons">
+            <div class="container d-flex flex-wrap justify-content-around text-muted small">
+                <div>
+                    <img src="assets/icons/DeliveryTruck.svg" height="48" />
+                    Доставка по всей России
+                </div>
+                <div>
+                    <img src="assets/icons/Boxes.svg" height="48" />
+                    Запчасти в наличии
+                </div>
+                <div>
+                    <img src="assets/icons/Ruble.svg" height="48" />
+                    Работаем с юр. и физ. лицами
+                </div>
+                <div>
+                    <img src="assets/icons/ShieldCheck.svg" height="48" />
+                    Гарантия на ремонт
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</header>
