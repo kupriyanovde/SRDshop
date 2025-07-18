@@ -24,4 +24,11 @@ services:
         arguments:
             $parts: !tagged_iterator common.layout.content
 
- 
+
+    App\Service\Module\:
+        resource: '../src/Service/Module/*'
+        tags: [ 'module.content.resolver' ]
+
+    App\Service\ModuleContentBuilder:
+        arguments:
+            $modules: !tagged_iterator module.content.resolver

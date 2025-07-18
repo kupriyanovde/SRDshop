@@ -1,0 +1,17 @@
+{# templates/components/content.html.twig #}
+
+{% if content is defined and content|length > 0 %}
+    {% set items_html %}
+        {% for item in content %}
+            {{ item|raw }}
+        {% endfor %}
+    {% endset %}
+
+    {% if position == 'left' or position == 'right' %}
+        <div id="column-{{ position }}" class="col-3 d-none d-md-block">
+            {{ items_html|raw }}
+        </div>
+    {% else %}
+        {{ items_html|raw }}
+    {% endif %}
+{% endif %}

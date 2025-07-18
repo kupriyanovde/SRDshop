@@ -26,13 +26,17 @@
     {% endblock %}
 
     <div class="row">
+        {{ component('modules', { position: 'left' }) }}
         <div id="content" class="col">
+            {{ component('modules', { position: 'top' }) }}
 
             {% block body %}
                 {# Содержимое страницы #}
             {% endblock %}
 
+            {{ component('modules', { position: 'bottom' }) }}
         </div>
+        {{ component('modules', { position: 'right' }) }}
     </div>
 </main>
 
