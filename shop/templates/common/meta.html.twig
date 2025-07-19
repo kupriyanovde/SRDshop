@@ -31,5 +31,6 @@
 {# Twitter Card #}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ twitter_title|default(title|default(default_value.title)) }}">
-<meta name="twitter:description" content="{{ twitter_description|default(description|default(default_value.description)) }}">
+<meta name="twitter:description"
+      content="{{ twitter_description|default(description|default(default_value.description)) }}">
 <meta name="twitter:image" content="{{ asset(twitter_image|default('assets/favicons/favicon-96x96.png')) }}">

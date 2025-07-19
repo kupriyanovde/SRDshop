@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="6a548140-5b7b-4787-a0fd-e00b65b52025" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sibremdetal.ru/assets/css/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/sibremdetal.ru/assets/css/stylesheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/common/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/common/meta.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/meta.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pages/error.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/error.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pages/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/home.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,10 +162,10 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="302u3WK1wW6jaA2MIbhzJNpRZVw" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -175,6 +179,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -195,6 +200,7 @@
       <option name="presentableId" value="Default" />
       <updated>1752837790314</updated>
       <workItem from="1752837791811" duration="2535000" />
+      <workItem from="1752893059613" duration="6108000" />
     </task>
     <servers />
   </component>
