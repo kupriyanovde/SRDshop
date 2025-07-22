@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6a548140-5b7b-4787-a0fd-e00b65b52025" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sibremdetal.ru/assets/css/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/sibremdetal.ru/assets/css/stylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/meta.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/meta.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/error.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/error.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/LayoutModuleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/LayoutModuleRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +155,7 @@
     </include_path>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -171,18 +166,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -200,7 +195,10 @@
       <option name="presentableId" value="Default" />
       <updated>1752837790314</updated>
       <workItem from="1752837791811" duration="2535000" />
-      <workItem from="1752893059613" duration="6108000" />
+      <workItem from="1752893059613" duration="8119000" />
+      <workItem from="1753066934025" duration="2297000" />
+      <workItem from="1753079423024" duration="1604000" />
+      <workItem from="1753167767367" duration="12661000" />
     </task>
     <servers />
   </component>
