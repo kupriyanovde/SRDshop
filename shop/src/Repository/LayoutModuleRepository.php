@@ -6,6 +6,16 @@ use App\Entity\LayoutModule;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
+/**
+ * Репозиторий для работы с модулями макета.
+ *
+ * @extends ServiceEntityRepository<LayoutModule>
+ *
+ * @method LayoutModule|null find($id, $lockMode = null, $lockVersion = null)
+ * @method LayoutModule|null findOneBy(array $criteria, array $orderBy = null)
+ * @method LayoutModule[]    findAll()
+ * @method LayoutModule[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ */
 class LayoutModuleRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
@@ -14,7 +24,8 @@ class LayoutModuleRepository extends ServiceEntityRepository
     }
 
     /**
-     * Возвращает модули, связанные с маршрутом и позицией, отсортированные по position и sortOrder.
+     * Возвращает модули, связанные с маршрутом и (опционально) позицией,
+     * отсортированные по позиции и порядку сортировки.
      *
      * @param string $route
      * @param string|null $position
@@ -33,9 +44,10 @@ class LayoutModuleRepository extends ServiceEntityRepository
                 ->setParameter('position', $position);
         }
 
-        $qb->orderBy('lp.position', 'ASC')
-            ->addOrderBy('lp.sortOrder', 'ASC');
-
-        return $qb->getQuery()->getResult();
+        return $qb
+            ->orderBy('lp.position', 'ASC')
+            ->addOrderBy('lp.sortOrder', 'ASC')
+            ->getQuery()
+            ->getResult();
     }
 }
