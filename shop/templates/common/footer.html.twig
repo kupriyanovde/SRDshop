@@ -1,59 +1,118 @@
-{# templates/layout/footer.html.twig #}
-<footer class="srd-footer">
+<footer class="srd-footer" role="contentinfo" aria-label="Футер сайта">
+    <!-- Плавающие кнопки навигации -->
+    <div class="floating-buttons" aria-label="Плавающие кнопки навигации">
+        <!-- Кнопка прокрутки вверх -->
+        <button class="floating-btn up-btn" aria-label="Наверх" type="button">
+            <img src="assets/icons/ArrowUp.svg" alt="Вверх" />
+        </button>
+        <!-- Кнопка открытия чата -->
+        <button class="floating-btn chat-btn" aria-label="Открыть чат" type="button">
+            <img src="assets/icons/Chat.svg" alt="Чат" />
+        </button>
+    </div>
+
     <div class="container">
         <div class="row">
+
+            <!-- Колонка "Компания" -->
             <div class="col-md-3 mb-3">
-                <h5>Компания</h5>
-                <ul class="list-unstyled small">
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Новости</a></li>
-                    <li><a href="#">Карьера</a></li>
-                </ul>
+                <section class="footer-section" aria-labelledby="footer-company-title">
+                    <!-- Заголовок для десктопа -->
+                    <h5 id="footer-company-title" class="d-none d-md-block">Компания</h5>
+                    <!-- Кнопка для мобильного раскрытия -->
+                    <button class="footer-toggle d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#footerCompany" aria-expanded="false" aria-controls="footerCompany" aria-label="Развернуть раздел Компания">
+                        Компания
+                    </button>
+                    <!-- Содержимое раздела -->
+                    <div class="collapse d-md-block" id="footerCompany">
+                        <ul class="list-unstyled small">
+                            <li><a href="#" tabindex="0">О нас</a></li>
+                            <li><a href="#" tabindex="0">Новости</a></li>
+                            <li><a href="#" tabindex="0">Карьера</a></li>
+                        </ul>
+                    </div>
+                </section>
             </div>
+
+            <!-- Колонка "Покупателям" -->
             <div class="col-md-3 mb-3">
-                <h5>Покупателям</h5>
-                <ul class="list-unstyled small">
-                    <li><a href="#">Доставка</a></li>
-                    <li><a href="#">Гарантия</a></li>
-                    <li><a href="#">Оплата</a></li>
-                </ul>
+                <section class="footer-section" aria-labelledby="footer-buyers-title">
+                    <h5 id="footer-buyers-title" class="d-none d-md-block">Покупателям</h5>
+                    <button class="footer-toggle d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#footerBuyers" aria-expanded="false" aria-controls="footerBuyers" aria-label="Развернуть раздел Покупателям">
+                        Покупателям
+                    </button>
+                    <div class="collapse d-md-block" id="footerBuyers">
+                        <ul class="list-unstyled small">
+                            <li><a href="#" tabindex="0">Доставка</a></li>
+                            <li><a href="#" tabindex="0">Гарантия</a></li>
+                            <li><a href="#" tabindex="0">Оплата</a></li>
+                        </ul>
+                    </div>
+                </section>
             </div>
+
+            <!-- Колонка "Услуги" -->
             <div class="col-md-3 mb-3">
-                <h5>Услуги</h5>
-                <ul class="list-unstyled small">
-                    <li><a href="#">Ремонт отопителей</a></li>
-                    <li><a href="#">Установка автономок</a></li>
-                    <li><a href="#">Заявка на подбор</a></li>
-                </ul>
+                <section class="footer-section" aria-labelledby="footer-services-title">
+                    <h5 id="footer-services-title" class="d-none d-md-block">Услуги</h5>
+                    <button class="footer-toggle d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#footerServices" aria-expanded="false" aria-controls="footerServices" aria-label="Развернуть раздел Услуги">
+                        Услуги
+                    </button>
+                    <div class="collapse d-md-block" id="footerServices">
+                        <ul class="list-unstyled small">
+                            <li><a href="#" tabindex="0">Ремонт отопителей</a></li>
+                            <li><a href="#" tabindex="0">Установка автономок</a></li>
+                            <li><a href="#" tabindex="0">Заявка на подбор</a></li>
+                        </ul>
+                    </div>
+                </section>
             </div>
+
+            <!-- Колонка "Контакты" -->
             <div class="col-md-3 mb-4">
-                <h5 class="mb-3">Контакты</h5>
+                <section class="footer-section" aria-labelledby="footer-contacts-title">
+                    <h5 id="footer-contacts-title" class="d-none d-md-block">Контакты</h5>
+                    <button class="footer-toggle d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#footerContacts" aria-expanded="false" aria-controls="footerContacts" aria-label="Развернуть раздел Контакты">
+                        Контакты
+                    </button>
 
-                {% set whatsapp = headerData.whatsapp|default('79059404240') %}
-                {% set phone = headerData.phone|default('+7 (905) 940-42-40') %}
-                {% set address = headerData.address|default('г. Омск, ул. 20 лет РККА 303 пом. 8П') %}
+                    {% set whatsapp = headerData.whatsapp|default('79059404240') %}
+                    {% set phone = headerData.phone|default('+7 (905) 940-42-40') %}
+                    {% set address = headerData.address|default('г. Омск, ул. 20 лет РККА 303 пом. 8П') %}
 
-                <p class="small mb-2">
-                    <a href="tel:{{ phone|replace({' ': '', '(': '', ')': '', '-': ''}) }}"
-                       class="d-flex align-items-center text-decoration-none text-dark">
-                        <img src="/assets/icons/Phone.svg" alt="Телефон" height="16" class="me-2"/>
-                        <span>{{ phone }}</span>
-                    </a>
-                </p>
+                    <div class="collapse d-md-block" id="footerContacts">
+                        <p class="small mb-2 d-flex flex-wrap align-items-center gap-3">
+                            <a href="https://wa.me/{{ whatsapp }}" target="_blank" rel="noopener noreferrer"
+                               class="d-inline-flex align-items-center text-decoration-none text-dark" aria-label="Написать в WhatsApp">
+                                <img src="/assets/icons/WhatsApp.svg" alt="WhatsApp" height="20" />
+                            </a>
+                            <a href="https://t.me/{{ headerData.telegram_username|default('+' ~ whatsapp) }}" target="_blank" rel="noopener noreferrer"
+                               class="d-inline-flex align-items-center text-decoration-none text-dark" aria-label="Написать в Telegram">
+                                <img src="/assets/icons/Telegram.svg" alt="Telegram" height="20" />
+                            </a>
+                            <a href="viber://chat?number={{ whatsapp }}" target="_blank" rel="noopener noreferrer"
+                               class="d-inline-flex align-items-center text-decoration-none text-dark" aria-label="Написать в Viber">
+                                <img src="/assets/icons/Viber.svg" alt="Viber" height="20" />
+                            </a>
+                            <a href="tel:{{ phone|replace({' ': '', '(': '', ')': '', '-': ''}) }}"
+                               class="phone-link d-inline-flex align-items-center"
+                               aria-label="Позвонить по телефону {{ phone }}">
+                                <img src="/assets/icons/Phone.svg" alt="Телефон" height="20" class="me-2"/>
+                                <span>{{ phone }}</span>
+                            </a>
+                        </p>
 
-                <p class="small mb-2">
-                    <a href="https://wa.me/{{ whatsapp }}" target="_blank"
-                       class="d-flex align-items-center text-decoration-none text-dark">
-                        <img src="/assets/icons/WhatsApp.svg" alt="WhatsApp" height="20" class="me-2"/>
-                        <span>Написать в WhatsApp</span>
-                    </a>
-                </p>
+                        <p class="small mb-0 d-flex align-items-start">
+                            <a href="{{ headerData.dgis_link|default('https://go.2gis.com/sjmYu') }}" target="_blank" rel="noopener noreferrer">
+                                <img src="/assets/icons/Location.svg" alt="Адрес" height="20" class="me-2 mt-1"/>
+                            </a>
+                            <span>{{ address }}</span>
+                        </p>
+                    </div>
 
-                <p class="small mb-0 d-flex align-items-start">
-                    <img src="/assets/icons/Location.svg" alt="Адрес" height="16" class="me-2 mt-1"/>
-                    <span>{{ address }}</span>
-                </p>
+                </section>
             </div>
+
         </div>
     </div>
 </footer>

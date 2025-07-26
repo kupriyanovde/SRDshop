@@ -15,6 +15,9 @@
     --srd-white: #ffffff;              /* Белый цвет */
     --srd-black: #000000;              /* Черный цвет */
 
+    /* Цвета для кнопок */
+    --srd-blue-button: #2C5D97;
+
     /* Тени для текста */
     --srd-text-shadow: 0 0 1px rgba(0, 75, 141, 0.3); /* Легкая тень для выделения */
 
@@ -75,14 +78,14 @@ body {
 /*         2. Каталог + Поиск        */
 /* ================================= */
 .srd-button-alt {
-    background-color: #2C5D97;           /* Темно-синий фон кнопок (можно вынести в переменную при необходимости) */
+    background-color: var(--srd-blue-button);           /* Темно-синий фон кнопок (можно вынести в переменную при необходимости) */
     color: var(--srd-white);              /* Белый цвет текста */
     border: none;                        /* Без рамки */
     padding: var(--srd-padding-vertical-small) var(--srd-padding-horizontal-large); /* Отступы */
     border-radius: var(--srd-border-radius);      /* Закругленные углы */
     transition: background-color 0.2s ease;       /* Плавное изменение фона */
     font-weight: var(--srd-font-weight-medium);   /* Средняя жирность текста */
-    vertical-align: middle;                        /* Вертикальное выравнивание */	
+    vertical-align: middle;                        /* Вертикальное выравнивание */
 }
 
 /* Ховер эффект для кнопок */
@@ -106,7 +109,7 @@ body {
     color: white;
     border-radius: 50%;
     padding: 2px 6px;
-    font-weight: 700;																   
+    font-weight: 700;
 }
 
 /* Основной блок шапки с фоном  (каталог, поиск, корзина) */
@@ -117,7 +120,7 @@ body {
     display: flex;
     align-items: center;
     flex-wrap: wrap; /* Чтобы на маленьких экранах не ломалась строка */
-    gap: 0.75rem; /* Отступы между элементами */											  
+    gap: 0.75rem; /* Отступы между элементами */
 }
 
 /* Поиск */
@@ -136,7 +139,7 @@ body {
 
 .srd-header-main button[type="submit"] {
     border-radius: 0 var(--srd-border-radius) var(--srd-border-radius) 0;
-    border: none;   
+    border: none;
     display: flex;
     align-items: center;
     padding: 0 var(--srd-padding-horizontal-large);
@@ -182,7 +185,7 @@ body {
     padding: var(--srd-padding-vertical-large) 0;    /* Вертикальные отступы */
     font-size: var(--srd-font-icon-size);            /* Немного увеличенный размер шрифта */
     text-align: center;                               /* Выравнивание текста по центру */
-	
+
 	display: flex;
     justify-content: center;
     gap: 3rem;
@@ -278,7 +281,7 @@ body {
 .about-banner p.fw-semibold {
     font-weight: 600;
     font-size: 1.05rem;
-    color: #004B8D;
+    color: var(--srd-blue);
 }
 
 /* Карта */
@@ -288,6 +291,212 @@ body {
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     margin-top: 1rem;
     max-width: 100%;
+}
+
+/* Общий стиль плавающих кнопок */
+.floating-buttons {
+    position: fixed;
+    bottom: 80px;
+    right: 16px;
+    display: flex;                /* ← делает контейнер флексом */
+    flex-direction: column;      /* ← размещает кнопки вертикально (в колонку) */
+    gap: 12px;                   /* ← расстояние между кнопками */
+    z-index: 1000;
+}
+
+/* Стиль для кнопки */
+.floating-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--srd-blue);
+    background-color: var(--srd-white);
+    color: var(--srd-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.25s ease, color 0.25s ease;
+    cursor: pointer;
+}
+
+/* При наведении — фон синий, иконка становится белой */
+.floating-btn:hover {
+    background-color: var(--srd-blue);
+    color: var(--srd-white);
+}
+
+/* Иконки внутри */
+.floating-btn img {
+    height: 20px;
+    width: 20px;
+    /*filter: brightness(0) saturate(100%) sepia(100%) hue-rotate(190deg) saturate(500%) contrast(1.2);*/
+    transition: filter 0.25s ease;
+}
+
+.floating-btn:hover img {
+    filter: brightness(0) invert(1);
+}
+
+/* Иконка внутри кнопки */
+.floating-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor; /* Поддержка цвета от родителя */
+}
+
+.up-btn {
+    display: none; /* изначально скрыта */
+}
+
+/* ================================= */
+/*          Мобильная версия         */
+/* ================================= */
+.mobile-header {
+    background-color: var(--srd-white); /* верхняя строка — белая */
+    border-bottom: 1px solid var(--srd-border-color);
+}
+
+.mobile-header-top .phone-number {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--srd-dark-blue-text);
+}
+
+/* ВТОРАЯ строка */
+.mobile-header-search {
+    background-color: var(--srd-blue);
+    padding: var(--srd-padding-vertical-small) var(--srd-padding-horizontal-large); /* Отступы */
+
+    border-radius: var(--srd-border-radius);      /* Закругленные углы */
+    transition: background-color 0.2s ease;       /* Плавное изменение фона */
+    font-weight: var(--srd-font-weight-medium);   /* Средняя жирность текста */
+    vertical-align: middle;                       /* Вертикальное выравнивание */
+}
+
+.mobile-header-search input.form-control {
+    flex-grow: 1;
+}
+
+/* Кнопка поиска в мобильной строке */
+.mobile-header-search .search-btn {
+    background-color: transparent;                    /* По умолчанию — прозрачная */
+    border: none;                                     /* Без рамки */
+    padding: 0.375rem 0.6rem;
+    border-radius: var(--srd-border-radius);          /* Скругление */
+    transition: background-color 0.2s ease;
+}
+
+/* Наведение — фон слегка белый */
+.mobile-header-search .search-btn:hover,
+.mobile-header-search .search-btn:focus {
+    background-color: rgba(255, 255, 255, 0.2);        /* Светлый прозрачный фон */
+    outline: none;                                     /* Убрать черную рамку */
+    box-shadow: none;                                  /* Убрать стандартный фокус */
+}
+
+/* Нижнее фикс меню (только для мобилок) */
+.mobile-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background-color: var(--srd-blue);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid #003C75;
+    z-index: 1000;
+}
+
+.mobile-bottom-nav .nav-item {
+    color: var(--srd-white);
+    text-decoration: none;
+    font-size: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    transition: background-color 0.2s ease;
+    height: 100%;
+}
+
+.mobile-bottom-nav .nav-item:hover {
+    background-color: var(--srd-blue-hover);
+}
+
+.mobile-bottom-nav .nav-item svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    margin-bottom: 2px;
+}
+
+.nav-item-label {
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: var(--srd-white);
+    text-shadow: 0 0 3px rgba(0,0,0,0.4);
+    user-select: none;
+}
+
+/* ================================= */
+/*              Подвал               */
+/* ================================= */
+.footer-toggle {
+    background: none;
+    border: none;
+    padding: var(--srd-padding-vertical-small) 0;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--srd-white);
+    font-weight: var(--srd-font-weight-medium);
+    font-size: var(--srd-font-base-size);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.footer-toggle:hover,
+.footer-toggle:focus {
+    color: var(--srd-blue-light-hover);
+    outline: none;
+    text-shadow: var(--srd-text-shadow);
+}
+
+.footer-toggle h5 {
+    margin: 0;
+    font-weight: 700; /* для более яркого выделения */
+    font-size: 1rem;
+}
+
+.footer-toggle::after {
+    content: "▼";
+    font-size: 1rem;
+    color: var(--srd-white);
+    transition: transform 0.3s ease;
+    user-select: none;
+}
+
+.footer-toggle[aria-expanded="true"]::after {
+    transform: rotate(180deg);
+}
+
+.phone-link {
+    color: var(--srd-white);            /* белый цвет на синем фоне */
+    font-weight: 700;
+    font-size: var(--srd-font-large-size);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.phone-link:hover {
+    color: var(--srd-blue-light-hover); /* светло-голубой при наведении */
+    text-decoration: underline;
 }
 
 /* ================================= */
@@ -358,6 +567,7 @@ body {
     border-radius: var(--srd-border-radius);
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
+
 /* =============================================================================================================== */
 /* =============================================================================================================== */
 /* =============================================================================================================== */
