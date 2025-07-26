@@ -1,37 +1,54 @@
 {# templates/layout/header.html.twig #}
+
+{# ----------------------------------- #}
+{# Верхняя часть сайта — основной header #}
+{# Содержит логотип, основные ссылки, контакты и вход #}
 <header>
-    {# 1-я строка — топ-бар #}
+
+    {# 1-я строка — топ-бар с логотипом и основными контактами и ссылками #}
     <div class="srd-header-top py-2">
         <div class="container d-flex justify-content-between align-items-center">
-            <div>
+
+            {# Логотип и ссылка на главную страницу #}
+            <div class="header-logo">
                 <a href="/" class="d-inline-flex align-items-center me-2" aria-label="Главная">
+                    {# Логотип компании, высота фиксирована для сохранения пропорций #}
                     <img src="assets/favicons/logo_big.svg" alt="ООО ПКФ СибРемДеталь" height="32"/>
                 </a>
             </div>
-            <div>
+
+            {# Навигационное меню — ссылки, которые можно переопределить через headerData.menuLinks #}
+            <nav class="header-menu-links" aria-label="Главное меню">
                 {% set menuLinks = headerData.menuLinks|default([
                     {'title': 'О компании', 'url': '#'},
                     {'title': 'Доставка', 'url': '#'},
                     {'title': 'Контакты', 'url': '#'}
                 ]) %}
+                {# Проходим по массиву ссылок и выводим их #}
                 {% for link in menuLinks %}
                     <a href="{{ link.url }}" class="me-3">{{ link.title }}</a>
                 {% endfor %}
-            </div>
-            <div>
+            </nav>
+
+            {# Контактная информация: WhatsApp и телефон #}
+            <div class="header-contacts d-flex align-items-center">
                 {% set whatsapp = headerData.whatsapp|default('79059404240') %}
                 {% set phone = headerData.phone|default('+7 (905) 940-42-40') %}
+                {# Ссылка на WhatsApp через API для быстрого сообщения #}
                 <a href="https://wa.me/{{ whatsapp }}" aria-label="Написать в WhatsApp"
                    class="d-inline-flex align-items-center me-2">
                     <img src="assets/icons/WhatsApp.svg" alt="Написать в WhatsApp" height="16"/>
                 </a>
+                {# Телефонный звонок по клику с форматированием номера #}
                 <a href="tel:{{ phone|replace({' ': '', '(': '', ')': '', '-': ''}) }}" aria-label="Позвонить"
                    class="d-inline-flex align-items-center me-2">
                     <img src="assets/icons/Phone.svg" alt="{{ phone }}" height="16"/>
                     <strong>{{ phone }}</strong>
                 </a>
             </div>
-            <div>
+
+            {# Ссылка на вход пользователя (авторизацию) #}
+            <div class="header-login">
                 <a href="#" class="d-inline-flex align-items-center me-2" aria-label="Вход">
                     <img src="assets/icons/User.svg" height="16"/>
                     Вход
@@ -40,73 +57,93 @@
         </div>
     </div>
 
-    {# 2-я строка — функциональная панель #}
-    <div class="srd-header-main">
-        <div class="container d-flex justify-content-between align-items-center">
-            <button class="srd-button-alt me-3">
-                <img src="assets/icons/Menu.svg" height="16"/>
-                Каталог
+</header>
+
+{# ----------------------------------- #}
+{# Навигация и функциональная панель — каталог, поиск, корзина #}
+<nav class="srd-header-main py-2" aria-label="Функциональная панель">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap">
+
+        {# Кнопка открытия каталога товаров, с иконкой меню #}
+        <button class="srd-button-alt me-3 mb-2 mb-md-0" aria-haspopup="true" aria-expanded="false">
+            <img src="assets/icons/Menu.svg" height="16" alt="Меню"/>
+            Каталог
+        </button>
+
+        {# Форма поиска по названию и артикулу, отправляется методом GET на /search #}
+        <form class="d-flex flex-grow-1 mx-3 mb-2 mb-md-0" role="search" method="get" action="/search" aria-label="Поиск товаров">
+            {# Поле ввода для поискового запроса #}
+            <input class="form-control me-2 search-input" type="search" name="q"
+                   placeholder="Поиск по названию, артикулу" aria-label="Введите запрос"/>
+            {# Кнопка отправки формы с иконкой лупы #}
+            <button class="srd-button-alt btn btn-outline-light" type="submit" aria-label="Искать">
+                <img src="assets/icons/MagnifyingGlass.svg" height="16" alt="Иконка поиска"/>
             </button>
+        </form>
 
-            <form class="d-flex flex-grow-1 mx-3" role="search" method="get" action="/search">
-                <input class="form-control me-2 search-input" type="search" name="q"
-                       placeholder="Поиск по названию, артикулу"/>
-                <button class="srd-button-alt btn btn-outline-light" type="submit">
-                    <img src="assets/icons/MagnifyingGlass.svg" height="16"/>
-                </button>
-            </form>
-
-            <div class="srd-cart">
-                {% set cartCount = headerData.cartCount|default(3) %}
-                <button class="srd-button-alt position-relative"
-                        aria-label="Перейти в корзину, {{ cartCount }} товаров">
-                    <img src="assets/icons/Cart.svg" height="16"/>
-                    Корзина
-                    {% if cartCount > 0 %}
-                        <span class="badge rounded-pill bg-danger">{{ cartCount }}</span>
-                    {% endif %}
-                </button>
-            </div>
+        {# Кнопка корзины с отображением количества товаров в ней #}
+        <div class="srd-cart">
+            {% set cartCount = headerData.cartCount|default(3) %}
+            <button class="srd-button-alt position-relative" aria-label="Перейти в корзину, {{ cartCount }} товаров">
+                <img src="assets/icons/Cart.svg" height="16" alt="Корзина"/>
+                Корзина
+                {# Если есть товары — показываем красный бейдж с количеством #}
+                {% if cartCount > 0 %}
+                    <span class="badge rounded-pill bg-danger">{{ cartCount }}</span>
+                {% endif %}
+            </button>
         </div>
     </div>
+</nav>
 
-    {# 3-я строка — меню действий #}
-    {% if headerData.hideMenu is not defined or headerData.hideMenu == false %}
-        <div class="srd-header-menu py-2">
-            <div class="container d-flex justify-content-center gap-4">
-                {% set actionsMenu = headerData.actionsMenu|default([
-                    {'title': 'Заявка на подбор запчастей', 'url': '#'},
-                    {'title': 'Услуги', 'url': '#'},
-                    {'title': 'Запись на установку и ремонт отопителей', 'url': '#'}
-                ]) %}
-                {% for action in actionsMenu %}
-                    <a href="{{ action.url }}">{{ action.title }}</a>
-                {% endfor %}
-            </div>
-        </div>
-    {% endif %}
+{# ----------------------------------- #}
+{# Второе навигационное меню — меню действий #}
+{% if headerData.hideMenu is not defined or headerData.hideMenu == false %}
+    <nav class="srd-header-menu py-2" aria-label="Меню действий">
+        <div class="container d-flex justify-content-center gap-4 flex-wrap">
 
-    {# 4-я строка — иконки доверия #}
-    {% if headerData.hideTrustIcons is not defined or headerData.hideTrustIcons == false %}
-        <div class="srd-trust-icons">
-            <div class="container d-flex flex-wrap justify-content-around text-muted small">
-                <div>
-                    <img src="assets/icons/DeliveryTruck.svg" height="48"/>
-                    Доставка по всей России
-                </div>
-                <div>
-                    <img src="assets/icons/Boxes.svg" height="48"/>
-                    Запчасти в наличии
-                </div>
-                <div>
-                    <img src="assets/icons/Ruble.svg" height="48"/>
-                    Работаем с юр. и физ. лицами
-                </div>
-                <div>
-                    <img src="assets/icons/ShieldCheck.svg" height="48"/>
-                    Гарантия на ремонт
-                </div>
-            </div>
+            {# Ссылки меню действий, можно менять через headerData.actionsMenu #}
+            {% set actionsMenu = headerData.actionsMenu|default([
+                {'title': 'Заявка на подбор запчастей', 'url': '#'},
+                {'title': 'Услуги', 'url': '#'},
+                {'title': 'Запись на установку и ремонт отопителей', 'url': '#'}
+            ]) %}
+
+            {# Перебираем все пункты меню и выводим ссылки #}
+            {% for action in actionsMenu %}
+                <a href="{{ action.url }}" class="action-link">{{ action.title }}</a>
+            {% endfor %}
         </div>
-    {% endif %}
-</header>
+    </nav>
+{% endif %}
+
+{# ----------------------------------- #}
+{# Секция с иконками доверия (доставка, наличие, гарантии и т.п.) #}
+{% if headerData.hideTrustIcons is not defined or headerData.hideTrustIcons == false %}
+    <section class="srd-trust-icons py-3" aria-label="Иконки доверия">
+        <div class="container d-flex flex-wrap justify-content-around text-muted small">
+
+            {# Каждый блок — отдельная иконка с подписью #}
+            <div class="trust-icon text-center mx-2 my-2">
+                <img src="assets/icons/DeliveryTruck.svg" height="48" alt="Доставка по всей России"/>
+                <div>Доставка по всей России</div>
+            </div>
+
+            <div class="trust-icon text-center mx-2 my-2">
+                <img src="assets/icons/Boxes.svg" height="48" alt="Запчасти в наличии"/>
+                <div>Запчасти в наличии</div>
+            </div>
+
+            <div class="trust-icon text-center mx-2 my-2">
+                <img src="assets/icons/Ruble.svg" height="48" alt="Работаем с юр. и физ. лицами"/>
+                <div>Работаем с юр. и физ. лицами</div>
+            </div>
+
+            <div class="trust-icon text-center mx-2 my-2">
+                <img src="assets/icons/ShieldCheck.svg" height="48" alt="Гарантия на ремонт"/>
+                <div>Гарантия на ремонт</div>
+            </div>
+
+        </div>
+    </section>
+{% endif %}

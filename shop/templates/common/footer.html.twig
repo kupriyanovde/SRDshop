@@ -26,14 +26,33 @@
                     <li><a href="#">Заявка на подбор</a></li>
                 </ul>
             </div>
-            <div class="col-md-3 mb-3">
-                <h5>Контакты</h5>
-                <p class="small mb-1">📞 +7 (905) 940-42-40</p>
-                <div class="d-flex gap-2">
-                    <a href="#"><img src="assets/icons/WhatsApp.svg" alt="VK" height="24"></a>
-                    <a href="#"><img src="assets/icons/WhatsApp.svg" alt="Telegram" height="24"></a>
-                    <a href="#"><img src="assets/icons/WhatsApp.svg" alt="WhatsApp" height="24"></a>
-                </div>
+            <div class="col-md-3 mb-4">
+                <h5 class="mb-3">Контакты</h5>
+
+                {% set whatsapp = headerData.whatsapp|default('79059404240') %}
+                {% set phone = headerData.phone|default('+7 (905) 940-42-40') %}
+                {% set address = headerData.address|default('г. Омск, ул. 20 лет РККА 303 пом. 8П') %}
+
+                <p class="small mb-2">
+                    <a href="tel:{{ phone|replace({' ': '', '(': '', ')': '', '-': ''}) }}"
+                       class="d-flex align-items-center text-decoration-none text-dark">
+                        <img src="/assets/icons/Phone.svg" alt="Телефон" height="16" class="me-2"/>
+                        <span>{{ phone }}</span>
+                    </a>
+                </p>
+
+                <p class="small mb-2">
+                    <a href="https://wa.me/{{ whatsapp }}" target="_blank"
+                       class="d-flex align-items-center text-decoration-none text-dark">
+                        <img src="/assets/icons/WhatsApp.svg" alt="WhatsApp" height="20" class="me-2"/>
+                        <span>Написать в WhatsApp</span>
+                    </a>
+                </p>
+
+                <p class="small mb-0 d-flex align-items-start">
+                    <img src="/assets/icons/Location.svg" alt="Адрес" height="16" class="me-2 mt-1"/>
+                    <span>{{ address }}</span>
+                </p>
             </div>
         </div>
     </div>

@@ -82,7 +82,7 @@ body {
     border-radius: var(--srd-border-radius);      /* Закругленные углы */
     transition: background-color 0.2s ease;       /* Плавное изменение фона */
     font-weight: var(--srd-font-weight-medium);   /* Средняя жирность текста */
-    vertical-align: middle;                        /* Вертикальное выравнивание */
+    vertical-align: middle;                        /* Вертикальное выравнивание */	
 }
 
 /* Ховер эффект для кнопок */
@@ -102,14 +102,46 @@ body {
     top: -8px;                                      /* Смещение сверху */
     right: -10px;                                   /* Смещение справа */
     font-size: var(--srd-font-badge-size);         /* Размер шрифта маленький */
+	background-color: #dc3545;						/* bootstrap-подобный красный для бейджа */
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-weight: 700;																   
 }
 
-/* Основной блок шапки с фоном */
+/* Основной блок шапки с фоном  (каталог, поиск, корзина) */
 .srd-header-main {
     background-color: var(--srd-blue);              /* Синий фон */
     color: var(--srd-white);                         /* Белый текст */
     padding: var(--srd-padding-vertical-medium) 0;  /* Вертикальные отступы */
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* Чтобы на маленьких экранах не ломалась строка */
+    gap: 0.75rem; /* Отступы между элементами */											  
 }
+
+/* Поиск */
+.srd-header-main form {
+    flex-grow: 1; /* Поиск занимает максимально доступное пространство */
+    display: flex;
+}
+
+.srd-header-main input.search-input {
+    flex-grow: 1; /* Поле ввода расширяется */
+    border: none;
+    border-radius: var(--srd-border-radius) 0 0 var(--srd-border-radius);
+    padding: var(--srd-padding-vertical-small) 0.75rem;
+    font-size: var(--srd-font-base-size);
+}
+
+.srd-header-main button[type="submit"] {
+    border-radius: 0 var(--srd-border-radius) var(--srd-border-radius) 0;
+    border: none;   
+    display: flex;
+    align-items: center;
+    padding: 0 var(--srd-padding-horizontal-large);
+}
+
 
 /* ================================= */
 /*           3. Меню                 */
@@ -119,6 +151,11 @@ body {
     color: var(--srd-white);                         /* Белый цвет текста */
     font-size: var(--srd-font-base-size);           /* Стандартный размер шрифта */
     border-bottom: 1px solid var(--srd-border-color); /* Нижняя граница */
+	display: flex;
+    justify-content: center;
+    gap: 2rem; /* Расстояние между пунктами меню */
+    flex-wrap: wrap;
+    padding: 0.5rem 0;
 }
 
 /* Стили ссылок меню */
@@ -126,6 +163,7 @@ body {
     color: var(--srd-white);                         /* Белый цвет */
     text-decoration: none;                            /* Без подчеркивания */
     transition: color 0.2s ease;                      /* Плавное изменение цвета */
+	white-space: nowrap; /* Чтобы пункт не переносился */
 }
 
 /* Ховер эффект для ссылок меню */
@@ -144,6 +182,23 @@ body {
     padding: var(--srd-padding-vertical-large) 0;    /* Вертикальные отступы */
     font-size: var(--srd-font-icon-size);            /* Немного увеличенный размер шрифта */
     text-align: center;                               /* Выравнивание текста по центру */
+	
+	display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    color: #666; /* Немного темнее серого для текста */
+}
+
+.trust-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 120px;
+}
+
+.trust-icon img {
+    margin-bottom: 0.5rem;
 }
 
 /* ================================= */
@@ -235,15 +290,55 @@ body {
     max-width: 100%;
 }
 
-/* Мобильная адаптация */
-@media (max-width: 768px) {
-    .about-banner {
-        padding: 1.25rem 1rem;
+/* ================================= */
+/*          Адаптивность             */
+/* ================================= */
+@media (max-width: 992px) {
+    .srd-header-main {
+        flex-direction: column;
+        align-items: stretch;
     }
-    .about-banner h3 {
-        font-size: 1.4rem;
+
+    .srd-header-main form {
+        max-width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .srd-header-menu {
+        gap: 1rem;
     }
 }
+
+@media (max-width: 576px) {
+    .srd-header-top {
+        font-size: 0.85rem;
+        padding: 0.3rem 0;
+    }
+
+    .srd-header-top a {
+        margin-right: 0.5rem;
+    }
+
+    .srd-header-main {
+        padding: 0.5rem 0;
+    }
+
+    .srd-button-alt {
+        padding: 0.3rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .srd-header-menu {
+        font-size: 0.9rem;
+        padding: 0.25rem 0;
+    }
+
+    .srd-trust-icons {
+        font-size: 1rem;
+        gap: 1.5rem;
+    }
+}
+
 
 /* Заглушка для иконок */
 .placeholder-icon {

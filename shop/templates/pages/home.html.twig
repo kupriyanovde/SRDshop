@@ -4,8 +4,13 @@
 {% block title %}Главная - SRD Запчасти{% endblock %}
 
 {% block body %}
-    <div class="text-center mb-4">
-        <h1>Автозапчасти для КамАЗ, МАЗ, Урал</h1>
-        <p class="lead">Продажа, установка и ремонт автономных отопителей и подогревателей</p>
+    {% set whatsapp = headerData.whatsapp|default('79059404240') %}
+    {% set phone = headerData.phone|default('+7 (905) 940-42-40') %}
+
+    <div class="alert alert-warning text-center" role="alert" style="margin: 0; border-radius: 0;">
+        🚧 Сейчас мы немного обновляем сайт. Чтобы оформить заказ или узнать подробности, напишите нам в
+        <a href="https://wa.me/{{ whatsapp }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        или позвоните:
+        <a href="tel:+79059404240">{{ phone }}</a>
     </div>
 {% endblock %}
