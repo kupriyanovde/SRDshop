@@ -1,9 +1,8 @@
 {# templates/common/mobile-header.html.twig #}
-{# ================= Мобильная версия header (показывается только на мобилках) ================= #}
 <header class="mobile-header d-md-none border-bottom">
     <div class="mobile-header-top d-flex justify-content-between align-items-center px-3 py-2">
-        <a href="/" aria-label="Главная">
-            <img src="assets/favicons/logo_big.svg" alt="Логотип" height="28"/>
+        <a href="{{ path('home') }}" aria-label="Главная">
+            <img src="{{ asset('assets/favicons/logo_big.svg') }}" alt="Логотип" height="28"/>
         </a>
 
         <div class="header-contacts d-flex align-items-center">
@@ -11,31 +10,31 @@
             {% set phone = headerData.phone|default('+7 (905) 940-42-40') %}
 
             <a href="tel:{{ phone|replace({' ': '', '(': '', ')': '', '-': ''}) }}" aria-label="Позвонить" class="d-inline-flex align-items-center me-2">
-                <a href="https://wa.me/{{ whatsapp }}" aria-label="Написать в WhatsApp" class="d-inline-flex align-items-center me-2">
-                    <img src="assets/icons/WhatsApp.svg" alt="Написать в WhatsApp" height="16"/>
-                </a>
+                <img src="{{ asset('assets/icons/Phone.svg') }}" alt="Телефон" height="16" class="me-1"/>
                 <span class="phone-number">{{ phone }}</span>
+            </a>
+
+            <a href="https://wa.me/{{ whatsapp }}" aria-label="Написать в WhatsApp" class="d-inline-flex align-items-center me-2">
+                <img src="{{ asset('assets/icons/WhatsApp.svg') }}" alt="Написать в WhatsApp" height="16"/>
             </a>
         </div>
     </div>
 
     <div class="mobile-header-search d-flex align-items-center px-3 py-2">
         <button class="btn btn-link p-0 me-2 mobile-menu-toggle" aria-label="Открыть меню" type="button">
-            <img src="assets/icons/Menu.svg" alt="Меню" height="24"/>
+            <img src="{{ asset('assets/icons/Menu.svg') }}" alt="Меню" height="24"/>
         </button>
 
-        <form class="mobile-search-form d-flex flex-grow-1 align-items-center" method="get" action="/search" role="search" aria-label="Поиск товаров">
+        <form class="mobile-search-form d-flex flex-grow-1 align-items-center" method="get" action="{{ path('product-search') }}" role="search" aria-label="Поиск товаров">
             <input class="form-control me-1" type="search" name="q"
                    placeholder="Поиск..." aria-label="Введите запрос" />
             <button class="btn p-2 search-btn" type="submit" aria-label="Искать">
-                <img src="assets/icons/MagnifyingGlass.svg" height="20" alt="Искать" />
+                <img src="{{ asset('assets/icons/MagnifyingGlass.svg') }}" height="20" alt="Искать" />
             </button>
         </form>
-
     </div>
 </header>
 
-{# ================= JS ================= #}
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         // Кнопки меню (бургер)

@@ -1,18 +1,18 @@
 {# templates/common/mobile-bottom-nav.html.twig #}
 {# ================= Нижнее фикс меню (только для мобилок) ================= #}
 <nav class="mobile-bottom-nav d-md-none fixed-bottom border-top d-flex justify-content-around align-items-center shadow-sm" style="background-color: var(--srd-blue);">
-    <a href="/" class="nav-item text-center" aria-label="Главная" style="flex:1; color:#fff; text-decoration:none;">
+    <a href="{{ path('home') }}" class="nav-item text-center" aria-label="Главная" style="flex:1; color:#fff; text-decoration:none;">
         <img src="assets/icons/Home.svg" alt="Главная" height="24" style="display:block; margin:0 auto 4px;" />
         <div class="nav-item-label">Главная</div>
     </a>
-    <a href="/cart" class="nav-item text-center position-relative" aria-label="Корзина" style="flex:1; color:#fff; text-decoration:none;">
+    <a href="{{ path('account-cart') }}" class="nav-item text-center position-relative" aria-label="Корзина" style="flex:1; color:#fff; text-decoration:none;">
         <img src="assets/icons/Cart.svg" alt="Корзина" height="24" style="display:block; margin:0 auto 4px;" />
         {% if headerData.cartCount|default(0) > 0 %}
             <span class="badge bg-danger position-absolute top-0 start-50 translate-middle px-1" style="font-size: 0.6rem; line-height:1;">{{ headerData.cartCount }}</span>
         {% endif %}
         <div class="nav-item-label">Корзина</div>
     </a>
-    <a href="/account" class="nav-item text-center" aria-label="Аккаунт" style="flex:1; color:#fff; text-decoration:none;">
+    <a href="{{ path('account-user') }}" class="nav-item text-center" aria-label="Аккаунт" style="flex:1; color:#fff; text-decoration:none;">
         <img src="assets/icons/UserW.svg" alt="Аккаунт" height="24" style="display:block; margin:0 auto 4px;" />
         <div class="nav-item-label">Аккаунт</div>
     </a>

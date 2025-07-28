@@ -7,10 +7,44 @@
     <list default="true" id="6a548140-5b7b-4787-a0fd-e00b65b52025" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sibremdetal.ru/assets/css/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/sibremdetal.ru/assets/css/stylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sibremdetal.ru/assets/icons/Cart.svg" beforeDir="false" afterPath="$PROJECT_DIR$/sibremdetal.ru/assets/icons/Cart.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Article.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Attribute.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/AttributeTree.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/AttributeTreeClosure.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/DetailName.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Doc.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/GroupPicture.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/GroupTree.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/GroupTreeClosure.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Layout.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Layout/Layout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/LayoutModule.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Layout/LayoutModule.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/LayoutRoute.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Layout/LayoutRoute.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Mark.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/ModelLink.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/ModelType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Picture.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ArticleRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/AttributeRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/AttributeTreeClosureRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/AttributeTreeRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/DetailNameRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/DocRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/GroupPictureRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/GroupTreeClosureRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/GroupTreeRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/LayoutModuleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Layout/LayoutModuleRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/MarkRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ModelLinkRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ModelTypeRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PictureRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/ModuleContentBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/ModuleContentBuilder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/common/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/footer.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/common/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/common/mobile-bottom-nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/mobile-bottom-nav.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/common/mobile-header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/mobile-header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/modules.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/modules.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/module/about_banner.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/module/about_banner.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pages/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/home.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,6 +239,7 @@
       <workItem from="1753167767367" duration="12661000" />
       <workItem from="1753442442428" duration="2425000" />
       <workItem from="1753499969917" duration="14612000" />
+      <workItem from="1753672222712" duration="10744000" />
     </task>
     <servers />
   </component>

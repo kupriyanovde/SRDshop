@@ -78,20 +78,26 @@ body {
 /*         2. Каталог + Поиск        */
 /* ================================= */
 .srd-button-alt {
-    background-color: var(--srd-blue-button);           /* Темно-синий фон кнопок (можно вынести в переменную при необходимости) */
-    color: var(--srd-white);              /* Белый цвет текста */
-    border: none;                        /* Без рамки */
-    padding: var(--srd-padding-vertical-small) var(--srd-padding-horizontal-large); /* Отступы */
-    border-radius: var(--srd-border-radius);      /* Закругленные углы */
-    transition: background-color 0.2s ease;       /* Плавное изменение фона */
-    font-weight: var(--srd-font-weight-medium);   /* Средняя жирность текста */
-    vertical-align: middle;                        /* Вертикальное выравнивание */
+    display: inline-flex;              /* чтобы размер как у кнопки и содержимое выравнено по центру */
+    align-items: center;              /* вертикальное выравнивание иконки и текста */
+    justify-content: center;          /* центрируем по горизонтали */
+    background-color: var(--srd-blue-button);    /* Темно-синий фон кнопок (можно вынести в переменную при необходимости) */
+    color: var(--srd-white);             /* Белый цвет текста */
+    border: none;                       /* Без рамки */
+    text-decoration: none;                    /* Подчеркивание отключено */
+    padding: var(--srd-padding-vertical-small) var(--srd-padding-horizontal-large);  /* Отступы */
+    border-radius: var(--srd-border-radius);  /* Закругленные углы */
+    transition: background-color 0.2s ease; /* Плавное изменение фона */
+    font-weight: var(--srd-font-weight-medium); /* Средняя жирность текста */
+    vertical-align: middle;             /* Вертикальное выравнивание */
+    font-size: 1rem;                  /* можно задать фиксированный размер шрифта */
+    line-height: 1.5;                 /* для более точного выравнивания */
 }
 
 /* Ховер эффект для кнопок */
 .srd-button-alt:hover {
-    background-color: var(--srd-blue-hover);       /* Светлее синий при наведении */
-    cursor: pointer;                                /* Курсор-рука */
+    background-color: var(--srd-blue-hover);
+    cursor: pointer;
 }
 
 /* Позиционирование контейнера корзины */
@@ -105,7 +111,7 @@ body {
     top: -8px;                                      /* Смещение сверху */
     right: -10px;                                   /* Смещение справа */
     font-size: var(--srd-font-badge-size);         /* Размер шрифта маленький */
-	background-color: #dc3545;						/* bootstrap-подобный красный для бейджа */
+    background-color: #dc3545;						/* bootstrap-подобный красный для бейджа */
     color: white;
     border-radius: 50%;
     padding: 2px 6px;
@@ -154,7 +160,7 @@ body {
     color: var(--srd-white);                         /* Белый цвет текста */
     font-size: var(--srd-font-base-size);           /* Стандартный размер шрифта */
     border-bottom: 1px solid var(--srd-border-color); /* Нижняя граница */
-	display: flex;
+    display: flex;
     justify-content: center;
     gap: 2rem; /* Расстояние между пунктами меню */
     flex-wrap: wrap;
@@ -166,7 +172,7 @@ body {
     color: var(--srd-white);                         /* Белый цвет */
     text-decoration: none;                            /* Без подчеркивания */
     transition: color 0.2s ease;                      /* Плавное изменение цвета */
-	white-space: nowrap; /* Чтобы пункт не переносился */
+    white-space: nowrap; /* Чтобы пункт не переносился */
 }
 
 /* Ховер эффект для ссылок меню */
@@ -186,7 +192,7 @@ body {
     font-size: var(--srd-font-icon-size);            /* Немного увеличенный размер шрифта */
     text-align: center;                               /* Выравнивание текста по центру */
 
-	display: flex;
+    display: flex;
     justify-content: center;
     gap: 3rem;
     flex-wrap: wrap;
@@ -357,10 +363,46 @@ body {
     border-bottom: 1px solid var(--srd-border-color);
 }
 
+.mobile-header-top a {
+    text-decoration: none !important;
+}
+
 .mobile-header-top .phone-number {
     font-weight: 600;
     font-size: 1rem;
     color: var(--srd-dark-blue-text);
+}
+
+/* ===========================================
+   Стили для номера телефона внутри ссылки
+   =========================================== */
+
+/* Отменяем подчеркивание у номера внутри ссылки */
+.phone-number {
+    text-decoration: none;           /* Убираем стандартное подчеркивание ссылок */
+    color: inherit;                  /* Наследуем цвет от родителя (ссылки) */
+    font-weight: 600;                /* Чуть более жирный шрифт для акцента */
+    transition: color 0.25s ease;   /* Плавный переход цвета при наведении */
+    cursor: pointer;                /* Курсор указывает на кликабельность */
+}
+
+/* При наведении на ссылку — цвет номера меняется */
+a:hover .phone-number {
+    color: var(--srd-blue-hover);   /* Цвет из переменных, можно изменить */
+    text-decoration: none;          /* Подчеркивание не появляется */
+    text-shadow: var(--srd-text-shadow); /* Легкая тень для визуального акцента */
+}
+
+/* Для доступности — при фокусе на ссылке тоже меняем стиль */
+a:focus-visible .phone-number {
+    outline: 2px solid var(--srd-blue-hover);
+    outline-offset: 2px;
+    text-decoration: none;
+}
+
+/* эффект при наведении именно на номер*/
+.phone-number:hover {
+    color: var(--srd-blue-light-hover);
 }
 
 /* ВТОРАЯ строка */

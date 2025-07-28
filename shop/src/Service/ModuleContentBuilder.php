@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\Repository\LayoutModuleRepository;
+use App\Repository\Layout\LayoutModuleRepository;
 use App\Service\Contract\ModuleContentInterface;
 
 class ModuleContentBuilder
@@ -30,7 +30,7 @@ class ModuleContentBuilder
             foreach ($this->modules as $module) {
                 if ($module->getName() === $needModuleName) {
                     $result[] = $module->getContent($route, $position);
-                    
+
                     // Прервать внутренний цикл, раз модуль найден
                     break;
                 }

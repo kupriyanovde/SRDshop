@@ -3,6 +3,7 @@
 {% if content is defined and content|length > 0 %}
     {% set items_html %}
         {% for item in content %}
+            <br>
             {{ item|raw }}
         {% endfor %}
     {% endset %}

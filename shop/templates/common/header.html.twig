@@ -5,26 +5,24 @@
 {# ================= Нижнее фикс меню (только для мобилок) ================= #}
 {% include 'common/mobile-bottom-nav.html.twig' %}
 
-
 {# ================= Основной header для ПК (скрывается на мобилках) ================= #}
-<header class="d-none d-md-block">
-    {# 1-я строка — топ-бар с логотипом и основными контактами и ссылками #}
+<header class="d-none d-md-block" role="banner">
     <div class="srd-header-top py-2">
         <div class="container d-flex justify-content-between align-items-center">
 
             {# Логотип и ссылка на главную страницу #}
             <div class="header-logo">
-                <a href="/" class="d-inline-flex align-items-center me-2" aria-label="Главная">
-                    <img src="assets/favicons/logo_big.svg" alt="ООО ПКФ СибРемДеталь" height="32"/>
+                <a href="{{ path('home') }}" class="d-inline-flex align-items-center me-2" aria-label="Главная">
+                    <img src="{{ asset('assets/favicons/logo_big.svg') }}" alt="ООО ПКФ СибРемДеталь" height="32"/>
                 </a>
             </div>
 
             {# Навигационное меню — ссылки #}
             <nav class="header-menu-links" aria-label="Главное меню">
                 {% set menuLinks = headerData.menuLinks|default([
-                    {'title': 'О компании', 'url': '#'},
-                    {'title': 'Доставка', 'url': '#'},
-                    {'title': 'Контакты', 'url': '#'}
+                    {'title': 'О компании', 'url': path('info-about')},
+                    {'title': 'Доставка', 'url': path('info-delivery')},
+                    {'title': 'Контакты', 'url': path('info-contacts')}
                 ]) %}
                 {% for link in menuLinks %}
                     <a href="{{ link.url }}" class="me-3">{{ link.title }}</a>
@@ -36,24 +34,23 @@
                 {% set whatsapp = headerData.whatsapp|default('79059404240') %}
                 {% set phone = headerData.phone|default('+7 (905) 940-42-40') %}
                 <a href="https://wa.me/{{ whatsapp }}" aria-label="Написать в WhatsApp" class="d-inline-flex align-items-center me-2">
-                    <img src="assets/icons/WhatsApp.svg" alt="Написать в WhatsApp" height="16"/>
+                    <img src="{{ asset('assets/icons/WhatsApp.svg') }}" alt="WhatsApp" height="16"/>
                 </a>
                 <a href="tel:{{ phone|replace({' ': '', '(': '', ')': '', '-': ''}) }}" aria-label="Позвонить" class="d-inline-flex align-items-center me-2">
-                    <img src="assets/icons/Phone.svg" alt="{{ phone }}" height="16"/>
+                    <img src="{{ asset('assets/icons/Phone.svg') }}" alt="Телефон" height="16"/>
                     <span class="phone-number">{{ phone }}</span>
                 </a>
             </div>
 
             {# Вход пользователя #}
             <div class="header-login">
-                <a href="#" class="d-inline-flex align-items-center me-2" aria-label="Вход">
-                    <img src="assets/icons/User.svg" height="16"/>
+                <a href="{{ path('account-login') }}" class="d-inline-flex align-items-center me-2" aria-label="Вход">
+                    <img src="{{ asset('assets/icons/User.svg') }}" alt="Вход" height="16"/>
                     Вход
                 </a>
             </div>
         </div>
     </div>
-
 </header>
 
 {# ----------------------------------- #}
@@ -62,30 +59,32 @@
     <div class="container d-flex justify-content-between align-items-center flex-wrap">
 
         {# Кнопка открытия каталога товаров с иконкой меню #}
-        <button class="srd-button-alt me-3 mb-2 mb-md-0" aria-haspopup="true" aria-expanded="false">
-            <img src="assets/icons/Menu.svg" height="16" alt="Меню"/>
+        <button class="srd-button-alt me-3 mb-2 mb-md-0" aria-haspopup="true" aria-expanded="false" aria-controls="catalog-menu" type="button">
+            <img src="{{ asset('assets/icons/Menu.svg') }}" height="16" alt="Меню"/>
             Каталог
         </button>
 
         {# Форма поиска #}
-        <form class="d-flex flex-grow-1 mx-3 mb-2 mb-md-0" role="search" method="get" action="/search" aria-label="Поиск товаров">
+        <form class="d-flex flex-grow-1 mx-3 mb-2 mb-md-0" role="search" method="get" action="{{ path('product-search') }}" aria-label="Поиск товаров">
             <input class="form-control me-2 search-input" type="search" name="q"
                    placeholder="Поиск по названию, артикулу" aria-label="Введите запрос"/>
             <button class="srd-button-alt btn btn-outline-light" type="submit" aria-label="Искать">
-                <img src="assets/icons/MagnifyingGlass.svg" height="16" alt="Иконка поиска"/>
+                <img src="{{ asset('assets/icons/MagnifyingGlass.svg') }}" height="16" alt="Иконка поиска"/>
             </button>
         </form>
 
         {# Корзина #}
         <div class="srd-cart">
-            {% set cartCount = headerData.cartCount|default(3) %}
-            <button class="srd-button-alt position-relative" aria-label="Перейти в корзину, {{ cartCount }} товаров">
-                <img src="assets/icons/Cart.svg" height="16" alt="Корзина"/>
-                Корзина
+            {% set cartCount = headerData.cartCount|default(0) %}
+            <a href="{{ path('account-cart') }}"
+               class="srd-button-alt position-relative"
+               aria-label="Перейти в корзину, {{ cartCount }} товаров">
+                <img src="{{ asset('assets/icons/Cart.svg') }}" height="16" alt="Корзина"/>
+                <span class="ms-2">Корзина</span>
                 {% if cartCount > 0 %}
                     <span class="badge rounded-pill bg-danger">{{ cartCount }}</span>
                 {% endif %}
-            </button>
+            </a>
         </div>
     </div>
 </nav>
@@ -97,9 +96,9 @@
         <div class="container d-flex justify-content-center gap-4 flex-wrap">
 
             {% set actionsMenu = headerData.actionsMenu|default([
-                {'title': 'Заявка на подбор запчастей', 'url': '#'},
-                {'title': 'Услуги', 'url': '#'},
-                {'title': 'Запись на установку и ремонт отопителей', 'url': '#'}
+                {'title': 'Заявка на подбор запчастей', 'url': path('service-search')},
+                {'title': 'Услуги', 'url': path('info-services')},
+                {'title': 'Запись на установку и ремонт отопителей', 'url': path('service-journal')}
             ]) %}
 
             {% for action in actionsMenu %}
@@ -116,22 +115,22 @@
         <div class="container d-flex flex-wrap justify-content-around text-muted small">
 
             <div class="trust-icon text-center mx-2 my-2">
-                <img src="assets/icons/DeliveryTruck.svg" height="48" alt="Доставка по всей России"/>
+                <img src="{{ asset('assets/icons/DeliveryTruck.svg') }}" height="48" alt="Доставка по всей России"/>
                 <div>Доставка по всей России</div>
             </div>
 
             <div class="trust-icon text-center mx-2 my-2">
-                <img src="assets/icons/Boxes.svg" height="48" alt="Запчасти в наличии"/>
+                <img src="{{ asset('assets/icons/Boxes.svg') }}" height="48" alt="Запчасти в наличии"/>
                 <div>Запчасти в наличии</div>
             </div>
 
             <div class="trust-icon text-center mx-2 my-2">
-                <img src="assets/icons/Ruble.svg" height="48" alt="Работаем с юр. и физ. лицами"/>
+                <img src="{{ asset('assets/icons/Ruble.svg') }}" height="48" alt="Работаем с юр. и физ. лицами"/>
                 <div>Работаем с юр. и физ. лицами</div>
             </div>
 
             <div class="trust-icon text-center mx-2 my-2">
-                <img src="assets/icons/ShieldCheck.svg" height="48" alt="Гарантия на ремонт"/>
+                <img src="{{ asset('assets/icons/ShieldCheck.svg') }}" height="48" alt="Гарантия на ремонт"/>
                 <div>Гарантия на ремонт</div>
             </div>
 
@@ -139,23 +138,21 @@
     </section>
 {% endif %}
 
-
-
-
 {# ================= JS ================= #}
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         // Кнопка "Наверх"
         const upBtn = document.querySelector('.up-btn');
         if (upBtn) {
+            upBtn.style.display = 'none'; // изначально скрыта
             upBtn.addEventListener('click', () => {
                 window.scrollTo({top: 0, behavior: 'smooth'});
             });
             window.addEventListener('scroll', () => {
-                if (window.scrollY > 100) {  // если прокрутили вниз больше 100px
-                    upBtn.style.display = 'flex';  // показываем кнопку (или block, flex — зависит от стилей)
+                if (window.scrollY > 100) {
+                    upBtn.style.display = 'flex';
                 } else {
-                    upBtn.style.display = 'none';  // скрываем кнопку вверху страницы
+                    upBtn.style.display = 'none';
                 }
             });
         }
