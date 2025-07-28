@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Product;
 
-use App\Repository\AttributeTreeClosureRepository;
+use App\Repository\Product\AttributeTreeClosureRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

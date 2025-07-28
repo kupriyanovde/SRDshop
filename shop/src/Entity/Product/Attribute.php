@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Product;
 
-use App\Repository\AttributeRepository;
+use App\Repository\Product\AttributeRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -26,7 +26,7 @@ class Attribute
      * Название атрибута.
      * Например: "Цвет", "Материал", "Диаметр".
      */
-    #[ORM\Column(type: 'string', length: 255, options: ['comment' => 'Название атрибута'])]
+    #[ORM\Column(type: 'string', length: 50, options: ['comment' => 'Название атрибута'])]
     private string $name;
 
     public function getId(): ?int

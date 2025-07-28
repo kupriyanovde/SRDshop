@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Repository;
+namespace App\Repository\Product;
 
-use App\Entity\AttributeTreeClosure;
-use App\Entity\AttributeTree;
+use App\Entity\Product\AttributeTree;
+use App\Entity\Product\AttributeTreeClosure;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 

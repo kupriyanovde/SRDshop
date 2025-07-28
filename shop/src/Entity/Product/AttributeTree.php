@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Product;
 
-use App\Repository\AttributeTreeRepository;
-use Doctrine\ORM\Mapping as ORM;
+use App\Repository\Product\AttributeTreeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Узел дерева атрибутов.
@@ -27,7 +27,7 @@ class AttributeTree
     /**
      * Название узла (атрибута или группы атрибутов).
      */
-    #[ORM\Column(type: 'string', length: 255, options: ['comment' => 'Название узла атрибутов'])]
+    #[ORM\Column(type: 'string', length: 100, options: ['comment' => 'Название узла атрибутов'])]
     private string $name;
 
     /**
