@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6a548140-5b7b-4787-a0fd-e00b65b52025" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sibremdetal.ru/assets/css/stylesheet.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sibremdetal.ru/assets/js/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sibremdetal.ru/manifest.webmanifest" beforeDir="false" afterPath="$PROJECT_DIR$/sibremdetal.ru/manifest.webmanifest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ModulesComponent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ModulesComponent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sibremdetal.ru/assets/css/styles.common.css" beforeDir="false" afterPath="$PROJECT_DIR$/sibremdetal.ru/assets/css/styles.common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sibremdetal.ru/assets/js/js.common.js" beforeDir="false" afterPath="$PROJECT_DIR$/sibremdetal.ru/assets/js/js.common.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Article.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/DetailName.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Doc.php" beforeDir="false" />
@@ -30,16 +28,6 @@
       <change beforePath="$PROJECT_DIR$/src/Repository/ModelLinkRepository.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/ModelTypeRepository.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/PictureRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Contract/ModuleContentInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Contract/ModuleContentInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Module/AboutBannerModule.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Module/AboutBannerModule.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Module/BannerModule.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Module/BannerModule.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/ModuleContentBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/ModuleContentBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/footer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/mobile-bottom-nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/mobile-bottom-nav.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/mobile-header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/mobile-header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/modules.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/modules.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +242,7 @@
       <workItem from="1753759131190" duration="392000" />
       <workItem from="1753783705136" duration="1161000" />
       <workItem from="1753785849207" duration="4519000" />
-      <workItem from="1753862138426" duration="9050000" />
+      <workItem from="1753862138426" duration="11969000" />
     </task>
     <servers />
   </component>

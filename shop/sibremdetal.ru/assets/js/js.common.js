@@ -54,27 +54,35 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Кнопка "Наверх"
     const upBtn = document.querySelector('.up-btn');
+    const chatBtn = document.querySelector('.chat-btn');
+
     if (upBtn) {
-        upBtn.style.display = 'none'; // изначально скрыта
+        upBtn.style.display = 'none';
+        let isVisible = false;
+
         upBtn.addEventListener('click', () => {
-            window.scrollTo({top: 0, behavior: 'smooth'});
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (document.activeElement === upBtn) {
+                upBtn.blur();
+            }
         });
+
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                upBtn.style.display = 'flex';
-            } else {
-                upBtn.style.display = 'none';
+            const shouldShow = window.scrollY > 100;
+
+            if (shouldShow !== isVisible) {
+                isVisible = shouldShow;
+                upBtn.style.display = shouldShow ? 'flex' : 'none';
             }
         });
     }
 
-    // Заглушка для кнопки Чат
-    const chatBtn = document.querySelector('.chat-btn');
     if (chatBtn) {
         chatBtn.addEventListener('click', () => {
             alert('Открыть чат');
+            chatBtn.blur();
         });
     }
 });
+

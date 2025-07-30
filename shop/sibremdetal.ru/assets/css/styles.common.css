@@ -105,7 +105,37 @@ body {
 }
 
 .up-btn {
-    display: none; /* изначально скрыта */
+    display: none;
+    background-color: var(--srd-white);
+    color: var(--srd-blue);
+    border: 2px solid var(--srd-blue);
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Цвет при наведении */
+.up-btn:hover {
+    background-color: var(--srd-blue);
+    color: var(--srd-white);
+}
+
+/* Иконка меняет цвет при hover */
+.up-btn:hover img {
+    filter: brightness(0) invert(1);
+}
+
+/* Отмена изменения цвета при клике (active и focus) */
+.up-btn:active,
+.up-btn:focus {
+    background-color: var(--srd-white) !important;
+    color: var(--srd-blue) !important;
+    outline: none; /* если не нужен фокусный контур */
+}
+
+/* Чтобы иконка тоже не меняла цвет при клике */
+.up-btn:active img,
+.up-btn:focus img {
+    filter: none !important;
 }
 
 
