@@ -1,0 +1,5 @@
+{# templates/common/mobile-menu.html.twig #}
+{% set extraClasses = extraClasses|default('') %}
+<div id="{{ id }}" class="universal-sidebar d-xl-none{{ extraClasses ? ' ' ~ extraClasses }}">
+    {% include content %}
+</div>

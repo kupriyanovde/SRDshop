@@ -1,0 +1,9 @@
+{# templates/common/category.html.twig #}
+
+{% set categories = headerData.categoryMenu|default([]) %}
+
+<ul class="category list-unstyled m-0 p-0">
+    {% for category in categories %}
+        <li><a href="{{ category.url }}">{{ category.title }}</a></li>
+    {% endfor %}
+</ul>

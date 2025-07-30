@@ -15,11 +15,11 @@
             {# Колонка: Компания #}
             <div class="col-md-3 mb-3">
                 <section class="footer-section" aria-labelledby="footer-company-title">
-                    <h5 id="footer-company-title" class="d-none d-md-block">Компания</h5>
-                    <button class="footer-toggle d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#footerCompany" aria-expanded="false" aria-controls="footerCompany">
+                    <h5 id="footer-company-title" class="d-none d-xl-block">Компания</h5>
+                    <button class="footer-toggle d-xl-none" type="button" data-bs-toggle="collapse" data-bs-target="#footerCompany" aria-expanded="false" aria-controls="footerCompany">
                         Компания
                     </button>
-                    <div class="collapse d-md-block" id="footerCompany">
+                    <div class="collapse d-xl-block" id="footerCompany">
                         <ul class="list-unstyled small">
                             <li><a href="{{ path('info-about') }}">О нас</a></li>
                             <li><a href="{{ path('info-contacts') }}">Контакты</a></li>
@@ -31,11 +31,11 @@
             {# Колонка: Покупателям #}
             <div class="col-md-3 mb-3">
                 <section class="footer-section" aria-labelledby="footer-buyers-title">
-                    <h5 id="footer-buyers-title" class="d-none d-md-block">Покупателям</h5>
-                    <button class="footer-toggle d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#footerBuyers" aria-expanded="false" aria-controls="footerBuyers">
+                    <h5 id="footer-buyers-title" class="d-none d-xl-block">Покупателям</h5>
+                    <button class="footer-toggle d-xl-none" type="button" data-bs-toggle="collapse" data-bs-target="#footerBuyers" aria-expanded="false" aria-controls="footerBuyers">
                         Покупателям
                     </button>
-                    <div class="collapse d-md-block" id="footerBuyers">
+                    <div class="collapse d-xl-block" id="footerBuyers">
                         <ul class="list-unstyled small">
                             <li><a href="{{ path('info-delivery') }}">Доставка</a></li>
                             <li><a href="{{ path('info-warranty') }}">Гарантия</a></li>
@@ -48,11 +48,11 @@
             {# Колонка: Услуги #}
             <div class="col-md-3 mb-3">
                 <section class="footer-section" aria-labelledby="footer-services-title">
-                    <h5 id="footer-services-title" class="d-none d-md-block">Услуги</h5>
-                    <button class="footer-toggle d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#footerServices" aria-expanded="false" aria-controls="footerServices">
+                    <h5 id="footer-services-title" class="d-none d-xl-block">Услуги</h5>
+                    <button class="footer-toggle d-xl-none" type="button" data-bs-toggle="collapse" data-bs-target="#footerServices" aria-expanded="false" aria-controls="footerServices">
                         Услуги
                     </button>
-                    <div class="collapse d-md-block" id="footerServices">
+                    <div class="collapse d-xl-block" id="footerServices">
                         <ul class="list-unstyled small">
                             <li><a href="{{ path('info-repair') }}">Ремонт отопителей</a></li>
                             <li><a href="{{ path('info-installation') }}">Установка автономок</a></li>
@@ -65,8 +65,8 @@
             {# Колонка: Контакты #}
             <div class="col-md-3 mb-4">
                 <section class="footer-section" aria-labelledby="footer-contacts-title">
-                    <h5 id="footer-contacts-title" class="d-none d-md-block">Контакты</h5>
-                    <button class="footer-toggle d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#footerContacts" aria-expanded="false" aria-controls="footerContacts">
+                    <h5 id="footer-contacts-title" class="d-none d-xl-block">Контакты</h5>
+                    <button class="footer-toggle d-xl-none" type="button" data-bs-toggle="collapse" data-bs-target="#footerContacts" aria-expanded="false" aria-controls="footerContacts">
                         Контакты
                     </button>
 
@@ -74,7 +74,7 @@
                     {% set phone = headerData.phone|default('+7 (905) 940-42-40') %}
                     {% set address = headerData.address|default('г. Омск, ул. 20 лет РККА 303 пом. 8П') %}
 
-                    <div class="collapse d-md-block" id="footerContacts">
+                    <div class="collapse d-xl-block" id="footerContacts">
                         <p class="small mb-2 d-flex flex-wrap align-items-center gap-3">
                             <a href="https://wa.me/{{ whatsapp }}" target="_blank" rel="noopener" class="text-decoration-none text-dark" aria-label="WhatsApp">
                                 <img src="{{ asset('assets/icons/WhatsApp.svg') }}" alt="WhatsApp" height="20">
@@ -103,3 +103,6 @@
         </div>
     </div>
 </footer>
+
+{# ================= JS ================= #}
+

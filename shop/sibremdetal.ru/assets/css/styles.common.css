@@ -1,0 +1,274 @@
+/* ================================= */
+/*          Переменные цвета         */
+/* ================================= */
+:root {
+    /* Основные цвета бренда */
+    --srd-blue: #004B8D;               /* Основной синий цвет бренда */
+    --srd-blue-hover: #3A6BAB;         /* Цвет синего при наведении */
+    --srd-blue-light-hover: #99c2ff;   /* Светло-голубой для ховера меню и футера */
+    --srd-dark-blue-text: #002C5E;     /* Темно-синий цвет текста */
+
+    /* Цвета для границ и разделителей */
+    --srd-border-color: #dee2e6;       /* Цвет границ и разделителей */
+
+    /* Цвета для текста и фона */
+    --srd-white: #ffffff;              /* Белый цвет */
+    --srd-black: #000000;              /* Черный цвет */
+
+    /* Цвета для кнопок */
+    --srd-blue-button: #2C5D97;
+
+    /* Тени для текста */
+    --srd-text-shadow: 0 0 1px rgba(0, 75, 141, 0.3); /* Легкая тень для выделения */
+
+    /* Размеры шрифтов */
+    --srd-font-base-size: 1rem;        /* Базовый размер шрифта */
+    --srd-font-large-size: 1.1rem;     /* Размер шрифта чуть больше базового */
+    --srd-font-icon-size: 1.3rem;      /* Размер шрифта для иконок доверия */
+    --srd-font-badge-size: 0.75rem;    /* Размер шрифта для бейджей (счётчиков) */
+
+    /* Отступы и размеры */
+    --srd-padding-vertical-small: 0.45rem; /* Маленькие вертикальные отступы (например, для кнопок) */
+    --srd-padding-horizontal-large: 2rem;  /* Большие горизонтальные отступы */
+    --srd-padding-vertical-medium: 0.7rem; /* Средние вертикальные отступы (например, шапка) */
+    --srd-padding-vertical-large: 1rem;    /* Большие вертикальные отступы (например, иконки доверия) */
+    --srd-padding-footer: 2rem 1rem;         /* Отступы для футера */
+
+    /* Радиус скругления */
+    --srd-border-radius: 4px;          /* Радиус скругления углов */
+
+    /* Шрифты */
+    --srd-font-family-base: sans-serif; /* Базовый шрифт */
+    --srd-font-weight-medium: 500;     /* Средняя жирность */
+}
+
+
+body {
+    font-family: var(--srd-font-family-base);    /* Шрифт по умолчанию */
+    background-color: var(--srd-white);          /* Белый фон страницы */
+}
+
+/* ================================= */
+/*        Плавающие кнопки           */
+/* ================================= */
+
+/* Общий стиль плавающих кнопок */
+.floating-buttons {
+    position: fixed;
+    bottom: 80px;
+    right: 16px;
+    display: flex;                /* ← делает контейнер флексом */
+    flex-direction: column;      /* ← размещает кнопки вертикально (в колонку) */
+    gap: 12px;                   /* ← расстояние между кнопками */
+    z-index: 1000;
+}
+
+/* Стиль для кнопки */
+.floating-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--srd-blue);
+    background-color: var(--srd-white);
+    color: var(--srd-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.25s ease, color 0.25s ease;
+    cursor: pointer;
+}
+
+/* При наведении — фон синий, иконка становится белой */
+.floating-btn:hover {
+    background-color: var(--srd-blue);
+    color: var(--srd-white);
+}
+
+/* Иконки внутри */
+.floating-btn img {
+    height: 20px;
+    width: 20px;
+    /*filter: brightness(0) saturate(100%) sepia(100%) hue-rotate(190deg) saturate(500%) contrast(1.2);*/
+    transition: filter 0.25s ease;
+}
+
+.floating-btn:hover img {
+    filter: brightness(0) invert(1);
+}
+
+/* Иконка внутри кнопки */
+.floating-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor; /* Поддержка цвета от родителя */
+}
+
+.up-btn {
+    display: none; /* изначально скрыта */
+}
+
+
+/* ================================= */
+/*            Футер                  */
+/* ================================= */
+.srd-footer {
+    background-color: var(--srd-blue);                /* Синий фон */
+    color: var(--srd-white);                           /* Белый текст */
+    padding: var(--srd-padding-footer);                /* Отступы */
+    border-top: 1px solid var(--srd-border-color);    /* Верхняя граница */
+}
+
+/* Ссылки в футере */
+.srd-footer a {
+    color: var(--srd-white);                           /* Цвет ссылок совпадает с текстом */
+    text-decoration: none;                             /* Без подчеркивания */
+    transition: color 0.2s ease;                       /* Плавное изменение цвета при наведении */
+}
+
+/* Ховер для ссылок в футере */
+.srd-footer a:hover {
+    color: var(--srd-blue-light-hover);                /* Светло-голубой при наведении */
+    text-decoration: none;                             /* Подчеркивание отключено */
+    text-shadow: var(--srd-text-shadow);               /* Легкая тень */
+}
+
+.footer-toggle {
+    background: none;
+    border: none;
+    padding: var(--srd-padding-vertical-small) 0;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--srd-white);
+    font-weight: var(--srd-font-weight-medium);
+    font-size: var(--srd-font-base-size);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.footer-toggle:hover,
+.footer-toggle:focus {
+    color: var(--srd-blue-light-hover);
+    outline: none;
+    text-shadow: var(--srd-text-shadow);
+}
+
+.footer-toggle h5 {
+    margin: 0;
+    font-weight: 700; /* для более яркого выделения */
+    font-size: 1rem;
+}
+
+.footer-toggle::after {
+    content: "▼";
+    font-size: 1rem;
+    color: var(--srd-white);
+    transition: transform 0.3s ease;
+    user-select: none;
+}
+
+.footer-toggle[aria-expanded="true"]::after {
+    transform: rotate(180deg);
+}
+
+.phone-link {
+    color: var(--srd-white);            /* белый цвет на синем фоне */
+    font-weight: 700;
+    font-size: var(--srd-font-large-size);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.phone-link:hover {
+    color: var(--srd-blue-light-hover); /* светло-голубой при наведении */
+    text-decoration: underline;
+}
+
+
+/* ===========================================
+   Стили для номера телефона внутри ссылки
+   =========================================== */
+
+/* Отменяем подчеркивание у номера внутри ссылки */
+.phone-number {
+    text-decoration: none;           /* Убираем стандартное подчеркивание ссылок */
+    color: inherit;                  /* Наследуем цвет от родителя (ссылки) */
+    font-weight: 600;                /* Чуть более жирный шрифт для акцента */
+    transition: color 0.25s ease;   /* Плавный переход цвета при наведении */
+    cursor: pointer;                /* Курсор указывает на кликабельность */
+}
+
+/* При наведении на ссылку — цвет номера меняется */
+a:hover .phone-number {
+    color: var(--srd-blue-hover);   /* Цвет из переменных, можно изменить */
+    text-decoration: none;          /* Подчеркивание не появляется */
+    text-shadow: var(--srd-text-shadow); /* Легкая тень для визуального акцента */
+}
+
+/* Для доступности — при фокусе на ссылке тоже меняем стиль */
+a:focus-visible .phone-number {
+    outline: 2px solid var(--srd-blue-hover);
+    outline-offset: 2px;
+    text-decoration: none;
+}
+
+/* эффект при наведении именно на номер*/
+.phone-number:hover {
+    color: var(--srd-blue-light-hover);
+}
+
+/* ======= Левое боковое меню ======= */
+
+/* Общий стиль ссылок */
+.category {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.category li {
+    margin: 0;
+}
+
+.category a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--srd-dark-blue-text);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.category a:hover {
+    background-color: var(--srd-blue-light-hover);
+    color: var(--srd-blue);
+}
+
+
+/* ================================= */
+/*                                   */
+/* ================================= */
+
+/* Заглушка для иконок */
+.placeholder-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: var(--srd-border-color);
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+/* Заглушка для карты */
+.placeholder-map {
+    width: 100%;
+    height: 250px;
+    background-color: var(--srd-border-color);
+    border-radius: var(--srd-border-radius);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+

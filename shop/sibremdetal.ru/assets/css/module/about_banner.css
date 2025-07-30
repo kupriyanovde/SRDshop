@@ -1,0 +1,65 @@
+/* =============================================================================================================== */
+/* =============================================================================================================== */
+/* =============================================================================================================== */
+
+.about-banner {
+    background-color: #f5f5f5;               /* светло-серый фон (в духе дизайна сайта) */
+
+    border: 1px solid #e0e0e0; /* светло-серая почти незаметная рамка */
+
+    padding: 2rem;                           /* внутренние отступы */
+    margin-bottom: 2rem;                     /* отступ снизу */
+}
+
+/* Заголовок */
+.about-banner h3 {
+    color: #002C5E;                          /* темно-синий, как на сайте */
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+/* Список преимуществ */
+.about-banner ul {
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+}
+
+.about-banner ul li {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 0.75rem;
+}
+
+/* Иконки */
+.about-banner ul li img {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.75rem;
+    filter: grayscale(100%) brightness(0) sepia(100%) hue-rotate(180deg) saturate(800%) contrast(1);
+}
+
+/* Абзацы */
+.about-banner p {
+    color: #222;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.about-banner p.fw-semibold {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--srd-blue);
+}
+
+/* Карта */
+.about-banner img.rounded {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    margin-top: 1rem;
+    max-width: 100%;
+}

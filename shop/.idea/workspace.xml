@@ -6,10 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="6a548140-5b7b-4787-a0fd-e00b65b52025" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sibremdetal.ru/assets/css/stylesheet.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sibremdetal.ru/assets/js/common.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sibremdetal.ru/manifest.webmanifest" beforeDir="false" afterPath="$PROJECT_DIR$/sibremdetal.ru/manifest.webmanifest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ModulesComponent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ModulesComponent.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Article.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Attribute.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Product/Attribute.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/AttributeTree.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Product/AttributeTree.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/AttributeTreeClosure.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Product/AttributeTreeClosure.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/DetailName.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Doc.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/GroupPicture.php" beforeDir="false" />
@@ -20,9 +21,6 @@
       <change beforePath="$PROJECT_DIR$/src/Entity/ModelType.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Picture.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/ArticleRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/AttributeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Product/AttributeRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/AttributeTreeClosureRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Product/AttributeTreeClosureRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/AttributeTreeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Product/AttributeTreeRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/DetailNameRepository.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/DocRepository.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/GroupPictureRepository.php" beforeDir="false" />
@@ -32,6 +30,16 @@
       <change beforePath="$PROJECT_DIR$/src/Repository/ModelLinkRepository.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/ModelTypeRepository.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/PictureRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Contract/ModuleContentInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Contract/ModuleContentInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Module/AboutBannerModule.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Module/AboutBannerModule.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Module/BannerModule.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Module/BannerModule.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/ModuleContentBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/ModuleContentBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/common/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/footer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/common/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/common/mobile-bottom-nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/mobile-bottom-nav.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/common/mobile-header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/mobile-header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/modules.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/modules.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +49,14 @@
   <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -194,6 +210,8 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/SRDshop/shop/templates/common&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -203,6 +221,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\SRDshop\shop\templates\common" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -226,7 +249,12 @@
       <workItem from="1753167767367" duration="12661000" />
       <workItem from="1753442442428" duration="2425000" />
       <workItem from="1753499969917" duration="14612000" />
-      <workItem from="1753672222712" duration="11620000" />
+      <workItem from="1753672222712" duration="17981000" />
+      <workItem from="1753700286449" duration="3539000" />
+      <workItem from="1753759131190" duration="392000" />
+      <workItem from="1753783705136" duration="1161000" />
+      <workItem from="1753785849207" duration="4519000" />
+      <workItem from="1753862138426" duration="9050000" />
     </task>
     <servers />
   </component>

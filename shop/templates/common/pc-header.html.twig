@@ -1,0 +1,125 @@
+{# templates/layout/pc-header.html.twig #}
+
+{# ================= Основной header для ПК (скрывается на мобилках) ================= #}
+<header class="d-none d-xl-block" role="banner">
+    <div class="srd-header-top py-2">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            {# Логотип и ссылка на главную страницу #}
+            <div class="header-logo">
+                <a href="{{ path('home') }}" class="d-inline-flex align-items-center me-2" aria-label="Главная">
+                    <img src="{{ asset('assets/favicons/logo_big.svg') }}" alt="ООО ПКФ СибРемДеталь" height="32"/>
+                </a>
+            </div>
+
+            {# Навигационное меню — ссылки #}
+            <nav class="header-menu-links" aria-label="Главное меню">
+                {% set menuLinks = headerData.menuLinks|default([
+                    {'title': 'О компании', 'url': path('info-about')},
+                    {'title': 'Доставка', 'url': path('info-delivery')},
+                    {'title': 'Контакты', 'url': path('info-contacts')}
+                ]) %}
+                {% for link in menuLinks %}
+                    <a href="{{ link.url }}" class="me-3">{{ link.title }}</a>
+                {% endfor %}
+            </nav>
+
+            {# Контакты WhatsApp и телефон #}
+            <div class="header-contacts d-flex align-items-center">
+                {% set whatsapp = headerData.whatsapp|default('79059404240') %}
+                {% set phone = headerData.phone|default('+7 (905) 940-42-40') %}
+                <a href="https://wa.me/{{ whatsapp }}" aria-label="Написать в WhatsApp" class="d-inline-flex align-items-center me-2">
+                    <img src="{{ asset('assets/icons/WhatsApp.svg') }}" alt="WhatsApp" height="16"/>
+                </a>
+                <a href="tel:{{ phone|replace({' ': '', '(': '', ')': '', '-': ''}) }}" aria-label="Позвонить" class="d-inline-flex align-items-center me-2">
+                    <img src="{{ asset('assets/icons/Phone.svg') }}" alt="Телефон" height="16"/>
+                    <span class="phone-number">{{ phone }}</span>
+                </a>
+            </div>
+
+            {# Вход пользователя #}
+            <div class="header-login">
+                <a href="{{ path('account-login') }}" class="d-inline-flex align-items-center me-2" aria-label="Вход">
+                    <img src="{{ asset('assets/icons/User.svg') }}" alt="Вход" height="16"/>
+                    Вход
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+{# ----------------------------------- #}
+{# Навигация и функциональная панель — каталог, поиск, корзина (ПК) #}
+<nav class="srd-header-main py-2 d-none d-xl-flex" aria-label="Функциональная панель">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap">
+
+        {# Кнопка открытия каталога товаров с иконкой меню #}
+        <button class="srd-button-alt me-3 mb-2 mb-md-0" aria-haspopup="true" aria-expanded="false" aria-controls="catalog-menu" type="button">
+            <img src="{{ asset('assets/icons/Menu.svg') }}" height="16" alt="Меню"/>
+            Каталог
+        </button>
+
+        {# Форма поиска #}
+        <form class="d-flex flex-grow-1 mx-3 mb-2 mb-md-0" role="search" method="get" action="{{ path('product-search') }}" aria-label="Поиск товаров">
+            <input class="form-control me-2 search-input" type="search" name="q"
+                   placeholder="Поиск по названию, артикулу" aria-label="Введите запрос"/>
+            <button class="srd-button-alt btn btn-outline-light" type="submit" aria-label="Искать">
+                <img src="{{ asset('assets/icons/MagnifyingGlass.svg') }}" height="16" alt="Иконка поиска"/>
+            </button>
+        </form>
+
+        {# Корзина #}
+        <div class="srd-cart">
+            {% set cartCount = headerData.cartCount|default(0) %}
+            <a href="{{ path('account-cart') }}"
+               class="srd-button-alt position-relative"
+               aria-label="Перейти в корзину, {{ cartCount }} товаров">
+                <img src="{{ asset('assets/icons/Cart.svg') }}" height="16" alt="Корзина"/>
+                <span class="ms-2">Корзина</span>
+                {% if cartCount > 0 %}
+                    <span class="badge rounded-pill bg-danger">{{ cartCount }}</span>
+                {% endif %}
+            </a>
+        </div>
+    </div>
+</nav>
+
+{# ----------------------------------- #}
+{# Второе навигационное меню — меню действий (ПК) #}
+{% if headerData.hideMenu is not defined or headerData.hideMenu == false %}
+    {% include 'common/nav-links.html.twig' with { format: 'nav', headerData: headerData|default([]) } %}
+{% endif %}
+
+<nav class="desktop-nav d-none d-xl-flex align-items-center gap-3 px-3">
+    {% include 'common/category.html.twig' %}
+</nav>
+
+{# ----------------------------------- #}
+{# Секция с иконками доверия (ПК) #}
+{% if headerData.hideTrustIcons is not defined or headerData.hideTrustIcons == false %}
+    <section class="srd-trust-icons py-3 d-none d-xl-flex" aria-label="Иконки доверия">
+        <div class="container d-flex flex-wrap justify-content-around text-muted small">
+
+            <div class="trust-icon text-center mx-2 my-2">
+                <img src="{{ asset('assets/icons/DeliveryTruck.svg') }}" height="48" alt="Доставка по всей России"/>
+                <div>Доставка по всей России</div>
+            </div>
+
+            <div class="trust-icon text-center mx-2 my-2">
+                <img src="{{ asset('assets/icons/Boxes.svg') }}" height="48" alt="Запчасти в наличии"/>
+                <div>Запчасти в наличии</div>
+            </div>
+
+            <div class="trust-icon text-center mx-2 my-2">
+                <img src="{{ asset('assets/icons/Ruble.svg') }}" height="48" alt="Работаем с юр. и физ. лицами"/>
+                <div>Работаем с юр. и физ. лицами</div>
+            </div>
+
+            <div class="trust-icon text-center mx-2 my-2">
+                <img src="{{ asset('assets/icons/ShieldCheck.svg') }}" height="48" alt="Гарантия на ремонт"/>
+                <div>Гарантия на ремонт</div>
+            </div>
+
+        </div>
+    </section>
+{% endif %}

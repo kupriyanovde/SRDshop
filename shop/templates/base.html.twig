@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="{{ app.request.locale|default('ru') }}" dir="{{ direction|default('ltr') }}">
+<html lang="ru" dir="{{ direction|default('ltr') }}">
 <head>
     {% include 'common/meta.html.twig' %}
 
     {# CSS и иконки по умолчанию #}
     <link href="{{ asset('assets/css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/bootstrap/bootstrap-icons.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/stylesheet.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/styles.common.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/styles.desktop.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/styles.mobile.css') }}" rel="stylesheet">
 
     {% block stylesheets %}
         {# Дополнительные стили, если нужно #}
@@ -44,6 +46,13 @@
 
 {# JS скрипты по умолчанию #}
 <script src="{{ asset('assets/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('assets/js/js.common.js') }}"></script>
+<script src="{{ asset('assets/js/js.desktop.js') }}"></script>
+<script src="{{ asset('assets/js/js.mobile.js') }}"></script>
+
+{% block javascript %}
+{# Дополнительные скрипты, если нужно #}
+{% endblock %}
 
 </body>
 </html>

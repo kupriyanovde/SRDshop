@@ -1,5 +1,5 @@
 {# templates/common/mobile-header.html.twig #}
-<header class="mobile-header d-md-none border-bottom">
+<header class="mobile-header d-xl-none border-bottom">
     <div class="mobile-header-top d-flex justify-content-between align-items-center px-3 py-2">
         <a href="{{ path('home') }}" aria-label="Главная">
             <img src="{{ asset('assets/favicons/logo_big.svg') }}" alt="Логотип" height="28"/>
@@ -21,29 +21,35 @@
     </div>
 
     <div class="mobile-header-search d-flex align-items-center px-3 py-2">
-        <button class="btn btn-link p-0 me-2 mobile-menu-toggle" aria-label="Открыть меню" type="button">
-            <img src="{{ asset('assets/icons/Menu.svg') }}" alt="Меню" height="24"/>
+        <button
+            class="btn btn-link p-0 me-2 mobile-menu-toggle"
+            aria-label="Открыть меню"
+            type="button"
+            data-toggle-menu="mobileMenu"
+            data-icon-close="{{ asset('assets/icons/Close.svg') }}"
+            data-icon-open="{{ asset('assets/icons/Menu.svg') }}"
+        >
+            <img src="{{ asset('assets/icons/Menu.svg') }}" alt="Меню" height="24" />
         </button>
 
         <form class="mobile-search-form d-flex flex-grow-1 align-items-center" method="get" action="{{ path('product-search') }}" role="search" aria-label="Поиск товаров">
-            <input class="form-control me-1" type="search" name="q"
-                   placeholder="Поиск..." aria-label="Введите запрос" />
+            <input class="form-control me-1" type="search" name="q" placeholder="Поиск..." aria-label="Введите запрос" />
             <button class="btn p-2 search-btn" type="submit" aria-label="Искать">
                 <img src="{{ asset('assets/icons/MagnifyingGlass.svg') }}" height="20" alt="Искать" />
             </button>
         </form>
     </div>
+
+    {% include 'common/mobile-menu.html.twig' with {
+        id: 'mobileMenu',
+        content: 'common/category.html.twig'
+    } %}
+
+    {# ================= Правое боковое меню (только для мобилок) ================= #}
+    {% include 'common/mobile-menu.html.twig' with {
+        id: 'mobileRightMenu',
+        content: 'common/nav-links.html.twig',
+        extraClasses: 'with-bottom-nav'
+    } %}
 </header>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Кнопки меню (бургер)
-        const menuButtons = document.querySelectorAll('.mobile-menu-toggle, .mobile-menu-toggle-btn');
-        menuButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                alert('Открыть мобильное меню');
-                // TODO: Добавить логику открытия бокового меню
-            });
-        });
-    });
-</script>

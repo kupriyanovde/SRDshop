@@ -16,6 +16,17 @@ class BannerModule implements ModuleContentInterface
         return 'banner';
     }
 
+    public function getStyles(): array
+    {
+        return [];
+    }
+
+    public function getScripts(): array
+    {
+        return [];
+    }
+
+
     public function getContent(string $route, string $position): ?string
     {
         // Передаем данные в twig-шаблон

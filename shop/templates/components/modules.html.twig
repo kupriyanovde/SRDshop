@@ -1,5 +1,11 @@
 {# templates/components/content.html.twig #}
 
+{% if extra_styles is defined and extra_styles is iterable %}
+    {% for style in extra_styles %}
+       <link href="{{ asset(style) }}" rel="stylesheet">
+   {% endfor %}
+{% endif %}
+
 {% if content is defined and content|length > 0 %}
     {% set items_html %}
         {% for item in content %}
@@ -9,10 +15,17 @@
     {% endset %}
 
     {% if position == 'left' or position == 'right' %}
-        <div id="column-{{ position }}" class="col-3 d-none d-md-block">
+        <div id="column-{{ position }}" class="col-3 d-none d-xl-block">
             {{ items_html|raw }}
         </div>
     {% else %}
         {{ items_html|raw }}
     {% endif %}
+{% endif %}
+
+
+{% if extra_scripts is defined and extra_scripts is iterable %}
+    {% for script in extra_scripts %}
+        <script src="{{ asset(script) }}"></script>
+    {% endfor %}
 {% endif %}

@@ -11,6 +11,8 @@ class ModulesComponent
 {
     public string $position = 'left';
     public array $content = [];
+    public array $extra_styles = [];
+    public array $extra_scripts = [];
 
     public function __construct(
         private RequestStack $requestStack,
@@ -23,6 +25,10 @@ class ModulesComponent
 
         $route = $this->requestStack->getCurrentRequest()?->attributes->get('_route') ?? '';
 
-        $this->content = $this->contentBuilder->build($route, $position);
+        $result = $this->contentBuilder->build($route, $position);
+
+        $this->content = $result['html'];
+        $this->extra_scripts = $result['scripts'];
+        $this->extra_styles = $result['styles'];
     }
 }

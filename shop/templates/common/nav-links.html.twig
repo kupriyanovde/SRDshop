@@ -1,0 +1,24 @@
+{# templates/common/nav-links.html.twig #}
+
+{% set actionsMenu = headerData.actionsMenu|default([
+    {'title': 'Заявка на подбор запчастей', 'url': path('service-search')},
+    {'title': 'Услуги', 'url': path('info-services')},
+    {'title': 'Запись на установку и ремонт отопителей', 'url': path('service-journal')}
+]) %}
+{% set format = format|default('list') %}
+
+{% if format == 'list' %}
+    <ul class="nav-links list-unstyled m-0 p-0">
+        {% for action in actionsMenu %}
+            <li><a href="{{ action.url }}" class="action-link">{{ action.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <nav class="srd-header-menu py-2 d-none d-xl-flex" aria-label="Меню действий">
+        <div class="container d-flex justify-content-center gap-4 flex-wrap">
+            {% for action in actionsMenu %}
+                <a href="{{ action.url }}" class="action-link">{{ action.title }}</a>
+            {% endfor %}
+        </div>
+    </nav>
+{% endif %}
